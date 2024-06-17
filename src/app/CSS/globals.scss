@@ -1,0 +1,133 @@
+* {
+    user-select: none;
+    -ms-user-select: none;
+    outline: 0;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0,);
+    text-decoration: none;
+}
+
+html {
+    width: 100svw;
+    height: 100svh;
+}
+
+body {
+    width: 100svw;
+    height: 100svh;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+.navigation {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(12, 67px);
+    gap: 20px; /* Gutter width */
+    // max-width: 1024px; /* Adjust based on your design */
+    top: 40px; 
+
+    .nav{
+        grid-column: 1 / 13;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    #category {
+        display: flex;
+    }
+    li {
+        list-style-type: none;
+        // text-align: center;
+        font-family: Pretendard;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px; /* 150% */
+        letter-spacing: -0.32px;
+
+        align-self: center;
+        justify-self: center;
+        .app_logo {
+            width: 67px;
+            height: 64px;
+            flex-shrink: 0;
+            margin-right: 70px;
+            // filter: invert(86%) sepia(30%) saturate(218%) hue-rotate(108deg) brightness(106%) contrast(98%);
+        }
+        .text {
+            color: #000;
+            text-decoration: none;
+            margin-right: 48px;
+        }
+        .contact_text {
+            position: relative;
+            color: #FFF;
+            padding: 10px;
+            gap: 10px;
+            border-radius: 9px;
+            border: none;
+            outline: none;
+            background: #262525;
+            cursor: pointer;
+        }
+        .contact_text::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-width: 0;
+            border: solid;
+            border-color: #ffffff rgba(255, 255, 255, .3) rgba(255, 255, 255, .3) #ffffff;
+            // box-shadow: 1px 1px 5px rgba(0, 0, 0, .4);
+            border-bottom-right-radius: 9px;
+            transition: .3s ease-out;
+        }
+        .contact_text:hover::before {
+            // box-shadow: 1px 1px 5px rgba(0, 0, 0, .4);
+            border-width: 10px;
+        }
+    }
+}
+
+// canvas {
+//     grid-area: cvs;
+//     width: 100%;
+//     height: 100vh;
+//     z-index: 49;
+// }
+
+.footer {
+    display: flex ;
+    flex-direction: row;
+    justify-content: center;
+    position: absolute;
+    color: rgb(185, 171, 254);
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+// .main {
+//     position: absolute;
+//     top: 0;
+//     bottom: 0;
+//     left: 0;
+//     right: 0;
+//     display: flex ;
+//     justify-content: center;
+//     align-items: center;
+
+// }
+
+// .link {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100 svw;
+//     height: 50 svh;
+//     z-index: 99;
+// }
