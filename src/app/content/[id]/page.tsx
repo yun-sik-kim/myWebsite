@@ -1,20 +1,49 @@
 import { connectDB } from "@/../util/database"
 import { ObjectId } from "mongodb";
+import Link from "next/link";
 import styles from './CSS/page.module.css';
 
 export default async function Content(props: any) {
     const db = (await connectDB).db("blog");
-    let result = await db.collection('JavaScript').findOne(
+    let result = await db.collection('post').findOne(
         {
-            _id: new ObjectId(props.params.id)
+            _id: ObjectId.createFromHexString(props.params.id)
         }
     ); 
-    // const date = result.date.$dateToString()
-    // console.log(result.date);
-    // console.log(date);
+
+    if (!result) {
+        return (
+            <div className={styles.grid_system}>
+                <div style={{gridColumn: '11 / 12'}}>
+                </div>
+                <div className={styles.main_content}>
+                    <div className={styles.hero_section}>
+                        <div className={styles.header}> 
+                            <div className={styles.title}>
+                                <h1 className={styles.main_title}>hmm... seems like page does not exist</h1>
+                                <h2 className={styles.sub_title}>please reload or go back to main page</h2>
+                            </div>
+                            <p className={styles.date}>sorry!</p>
+                        </div>
+                        <div className={styles.hero_image}>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className={styles.grid_system}>
+            <div style={{gridColumn: '11 / 12'}}>
+                <Link href={`/wndlswkd/edit/${result._id}`}>   {/* !!! FIX if user login, activate this button redirect to edit page. */}
+                    <button>
+                        edit article
+                    </button>   
+                </Link>
+                
+            </div>
             <div className={styles.main_content}>
                 <div className={styles.hero_section}>
                     <div className={styles.header}> 
@@ -29,7 +58,7 @@ export default async function Content(props: any) {
                     </div>
                 </div>
                 <p className={styles.paragraph}>
-                    dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ornare suspendisse sed nisi lacus sed viverra tellus in hac. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Lobortis scelerisque fermentum dui faucibus in ornare. Sed turpis tincidunt id aliquet risus feugiat in. Eget nulla facilisi etiam dignissim diam quis enim. In ante metus dictum at tempor commodo ullamcorper a. Porttitor lacus luctus accumsan tortor posuere ac ut consequat semper. Nibh tortor id aliquet lectus proin nibh nisl condimentum. Vitae suscipit tellus mauris a diam. Facilisis sed odio morbi quis commodo odio aenean. Vulputate ut pharetra sit amet. Leo urna molestie at elementum. Scelerisque felis imperdiet proin fermentum leo vel orci. Ac turpis egestas maecenas pharetra convallis posuere morbi leo urna. Non arcu risus quis varius quam. At lectus urna duis convallis convallis. Volutpat ac tincidunt vitae semper. Condimentum mattis pellentesque id nibh tortor.
+                    {result.context}
                 </p>
             </div>
         </div>

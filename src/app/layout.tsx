@@ -3,7 +3,7 @@ import localFont from 'next/font/local'
 import "./CSS/globals.css";
 import Image from "next/image";
 import Link from "next/link";
-import { Footer } from "./Footer";
+// import { Footer } from "./Footer";
 
 const myFont = localFont({ src: '/fonts/PretendardVariable.woff2' })
 

@@ -7,12 +7,16 @@ export default function CanvasReact() {
     let [dimension, setDimension] = useState({width: 0, height: 0});
 
     useEffect(() => {
-        if (canvasRef.current) {
-            new Canvas(canvasRef.current);
-        }
-      }, []);
+      // TRIED TO MAKE WIDTH HEIGHT AUTO DETECT FUNCTION
+      // let canvasElement = document.getElementsByClassName(styles.hero_image);
+      // let rect = canvasElement.getBoundingClientRect();
+
+      if (canvasRef.current) {
+        new Canvas(canvasRef.current);
+      }
+    }, []);
 
     return (     
-      <canvas ref={canvasRef} />
+      <canvas ref={canvasRef} style={{borderRadius: '9px'}} />
     );
   }

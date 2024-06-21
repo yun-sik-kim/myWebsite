@@ -5,22 +5,24 @@ import { Circle } from "./Circle";
 export class Canvas {
     private canvas: HTMLCanvasElement;
     private ctx: CanvasRenderingContext2D | null;
-    bgWidth: number;
-    bgHeight: number;
-    scale: number;
-    texts: FloatingText[];
-    curtains: Curtains;
-    circle: Circle;
-    isClicked: boolean;
+    bgWidth!: number;   // using ! operator to tell TypeScript that these properties will definitely be assigned before they are used.
+    bgHeight!: number;
+    scale!: number;
+    texts!: FloatingText[];
+    curtains!: Curtains;
+    circle!: Circle;
+    isClicked!: boolean;
 
     constructor(canvas: HTMLCanvasElement) {
         this.canvas = canvas;
         this.ctx = this.canvas.getContext('2d');
         if (this.ctx === null) return;
 
-        this.bgWidth = document.documentElement.clientWidth;
-        this.bgHeight = document.documentElement.clientHeight;
-        this.scale = (window.devicePixelRatio > 1)? 2 : 1;
+        // this.bgWidth = document.documentElement.clientWidth; // ON/OFF(A)
+        // this.bgHeight = document.documentElement.clientHeight; // ON/OFF(A)
+        this.scale = (window.devicePixelRatio > 1)? 2 : 1;  // ON/OFF(A)
+        this.bgWidth = 676;
+        this.bgHeight = 394;
 
         this.isClicked = false;
 
@@ -29,8 +31,8 @@ export class Canvas {
         this.resize();
 
         this.texts = [
-            new FloatingText(this.bgWidth, this.bgHeight, 'blog', 300, 1, 'rgba(0, 0, 255, 1)'),
-            new FloatingText(this.bgWidth, this.bgHeight, 'portfolio', 300, 1,'rgba(0, 0, 255, 1)'),
+            new FloatingText(this.bgWidth, this.bgHeight, 'blog', 30, 1, 'rgba(0, 0, 255, 1)'),
+            new FloatingText(this.bgWidth, this.bgHeight, 'portfolio', 30, 1,'rgba(0, 0, 255, 1)'),
             // new FloatingText(this.bgWidth, this.bgHeight, 'Yunsik', 64, 1, 'rgba(0, 0, 255, 1)'),
             // new FloatingText(this.bgWidth, this.bgHeight, 'Kim', 64, 1,'rgba(0, 0, 255, 1)')
         ];
@@ -40,11 +42,11 @@ export class Canvas {
     }
 
     resize() {
-        this.canvas.width = this.bgWidth * this.scale;
-        this.canvas.height = this.bgHeight * this.scale;
-        // canvas.width = bgWidth * scale;
-        // canvas.height = bgHeight * scale;
-        this.ctx.scale(this.scale, this.scale);
+        // this.canvas.width = this.bgWidth * this.scale; // ON/OFF(A)
+        // this.canvas.height = this.bgHeight * this.scale; // ON/OFF(A)
+        this.canvas.width = 676;
+        this.canvas.height = 394;
+        // this.ctx.scale(this.scale, this.scale);
     }
 
     animate(t :number) {
@@ -63,7 +65,7 @@ export class Canvas {
         this.curtains.draw(this.ctx, 'white');
         // Temorary nameholder, will be modified using pixi.js
         this.ctx.fillStyle = 'blue';
-        this.ctx.font = `bold 64px Arial`;
+        this.ctx.font = `bold 24px Arial`;
         this.ctx.textBaseline = "middle";
         this.ctx.textAlign = "center";
         this.ctx.fillText('Yunsik Kim', this.bgWidth/2, this.bgHeight/2);
@@ -88,10 +90,10 @@ export class Canvas {
     nextPage(e :MouseEvent) {
         this.circle = new Circle(e.offsetX, e.offsetY, this.bgWidth, 5);
         let ratio = e.offsetX / this.bgWidth;
-        if (ratio > 0.5) {
+        if (ratio < 1 && ratio > 0.5) {
             this.isClicked = true;
             setTimeout(()=>{window.location.href = './blog'}, 2500);
-        } else {
+        } else if (ratio < 0.5 && ratio > 0) {
             this.isClicked = true;
             setTimeout(()=>{window.location.href = './portfolio'}, 2500);
         }

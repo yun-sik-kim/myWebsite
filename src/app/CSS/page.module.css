@@ -8,7 +8,7 @@
 .grid_system .hero_image {
   grid-column: 1/9;
   height: 394px;
-  background-color: blueviolet;
+  background-color: transparent;
   border-radius: 9px;
 }
 .grid_system .new_post {

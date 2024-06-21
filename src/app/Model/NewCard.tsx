@@ -3,15 +3,15 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import styles from "./../CSS/page.module.css"
 
-export default function Card(props: any) {
+export default function NewCard(props: any) {
     const [isMouseHover, setIsMouseHover] = useState(false);
-
-    const id :string = props.id;
-    const title :string = props.title;
-    const subTitle :string = props.subTitle;
-    const colour :string = props.colour;
-    const tags :string[] = props.tags;
-    const date :any = props.date;
+    const id : string = props.id;
+    const title : string = props.title;
+    const subTitle : string = props.subTitle;
+    const colour : string = props.colour;
+    const tags : string[] = props.tags;
+    const date : any = props.date;
+    const category : string = props.category;
 
     return (
         <div className={styles.card} //className={isMouseHover ? styles.card_hover : styles.card} 
