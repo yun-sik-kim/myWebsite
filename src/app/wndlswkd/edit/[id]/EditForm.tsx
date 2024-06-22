@@ -1,5 +1,6 @@
 "use client"
 import { useState, useEffect } from 'react';
+import React, { FormEvent } from 'react';
 
 export default function EditForm( props: any ) {
   const [postNo, setPostNo] = useState(props.postNo);
@@ -11,7 +12,7 @@ export default function EditForm( props: any ) {
   const [context, setContext] = useState(props.context);
   const [colour, setColour] = useState(props.colour);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const response = await fetch('/api/update', {

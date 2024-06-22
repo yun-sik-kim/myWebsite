@@ -17,6 +17,6 @@ export default function CanvasReact() {
     }, []);
 
     return (     
-      <canvas ref={canvasRef} style={{borderRadius: '9px'}} />
+      <canvas id="myCanvas" ref={canvasRef} style={{borderRadius: '9px', width: '676px', height: '394px'}} />
     );
   }

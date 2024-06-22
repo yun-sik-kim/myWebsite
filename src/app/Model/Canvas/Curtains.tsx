@@ -18,7 +18,6 @@ export class Curtains {
     updateStatus(e :MouseEvent) {
         this.mousePos = {x: e.offsetX, y: e.offsetY};
         this.region = {x: this.bgWidth - this.mousePos.x, y: this.bgHeight};
-        
     }
 
     draw(ctx :CanvasRenderingContext2D, textColor :string) {
