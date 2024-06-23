@@ -17,7 +17,7 @@ export default function WriteForm( props: any ) {
     console.log(newColour);
   }, []); // Empty dependency array ensures this runs only once
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const response = await fetch('/api/post', {
@@ -40,40 +40,40 @@ export default function WriteForm( props: any ) {
       <input
         type="text"
         placeholder="category"
-        value={category}
+        value={category ?? ''}  // nullish coalescing, if category is null, it falls back to an empty string ''.
         onChange={(e) => setCategory(e.target.value)}
         required
       />
       <input
         type="text"
         placeholder="Title"
-        value={title}
+        value={title ?? ''}
         onChange={(e) => setTitle(e.target.value)}
         required
       />
       <input
         type="text"
         placeholder="Subtitle"
-        value={subTitle}
+        value={subTitle ?? ''}
         onChange={(e) => setSubTitle(e.target.value)}
         required
       />
       <input
         type="date"
-        value={date}
+        value={date ?? ''}
         onChange={(e) => setDate(e.target.value)}
         required
       />
       <textarea
         placeholder="Context"
-        value={context}
+        value={context ?? ''}
         onChange={(e) => setContext(e.target.value)}
         required
       ></textarea>
       <input
         type="text"
         placeholder="tag"
-        value={tag}
+        value={tag ?? ''}
         onChange={(e) => setTag(e.target.value)}
         required
       />

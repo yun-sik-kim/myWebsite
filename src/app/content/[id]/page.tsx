@@ -5,6 +5,7 @@ import styles from './CSS/page.module.css';
 
 import { GET } from '@/app/api/auth/[...nextauth]/route'
 import { getServerSession } from "next-auth";
+import { notFound } from "next/navigation";
 
 export default async function Content(props: any) {
     const db = (await connectDB).db("blog");
@@ -20,26 +21,7 @@ export default async function Content(props: any) {
     }
 
     if (!result) {
-        return (
-            <div className={styles.grid_system}>
-                <div style={{gridColumn: '11 / 12'}}>
-                </div>
-                <div className={styles.main_content}>
-                    <div className={styles.hero_section}>
-                        <div className={styles.header}> 
-                            <div className={styles.title}>
-                                <h1 className={styles.main_title}>hmm... seems like page does not exist</h1>
-                                <h2 className={styles.sub_title}>please reload or go back to main page</h2>
-                            </div>
-                            <p className={styles.date}>sorry!</p>
-                        </div>
-                        <div className={styles.hero_image}>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
+        return notFound();
     }
 
     return (

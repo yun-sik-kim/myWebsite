@@ -14,7 +14,7 @@ interface PostData {
     colour: string;
 }
 
-export default async function Edit(props: PostData) {
+export default async function Edit(props: any) {
     const db = (await connectDB).db("blog");
     let result = await db.collection('post').findOne(
         {
