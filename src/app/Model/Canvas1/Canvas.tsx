@@ -13,43 +13,40 @@ export class Canvas {
     circle!: Circle;
     isClicked!: boolean;
 
-    constructor(canvas: HTMLCanvasElement) {
+    constructor(canvas: HTMLCanvasElement, width: number, height: number) {
         this.canvas = canvas;
         this.ctx = this.canvas.getContext('2d');
         if (this.ctx === null) return;
 
-        // this.bgWidth = document.documentElement.clientWidth; // ON/OFF(A)
-        // this.bgHeight = document.documentElement.clientHeight; // ON/OFF(A)
-        this.scale = (window.devicePixelRatio > 1)? 2 : 1;  // ON/OFF(A)
-        this.bgWidth = 676;
-        this.bgHeight = 394;
+        // this.bgWidth = document.documentElement.clientWidth; // when you want full screen canvas
+        // this.bgHeight = document.documentElement.clientHeight; // when you want full screen canvas
+        this.scale = (window.devicePixelRatio > 1)? 2 : 1;
+        this.bgWidth = width;
+        this.bgHeight = height;
 
         const myCanvas = document.getElementById('myCanvas');
 
         this.isClicked = false;
 
         window.addEventListener('resize', this.resize.bind(this), false);
-        myCanvas!.addEventListener('click', this.nextPage.bind(this));
+        // myCanvas!.addEventListener('click', this.nextPage.bind(this));   // ON THIS TO ACTIVATE CLICK
         this.resize();
 
         this.texts = [
-            new FloatingText(this.bgWidth, this.bgHeight, 'JavaScript', 30, 1, 'rgba(0, 0, 255, 1)'),
-            new FloatingText(this.bgWidth, this.bgHeight, 'UI/UX', 30, 1,'rgba(0, 0, 255, 1)'),
-            new FloatingText(this.bgWidth, this.bgHeight, 'Thoughts', 64, 1, 'rgba(0, 0, 255, 1)'),
-            new FloatingText(this.bgWidth, this.bgHeight, 'Kim', 64, 1,'rgba(0, 0, 255, 1)')
+            new FloatingText(this.bgWidth, this.bgHeight, 'Blog', 30, 1, 'rgba(255, 255, 255, 1)'),
+            new FloatingText(this.bgWidth, this.bgHeight, 'tech', 30, 1,'rgba(255, 255, 255, 1)'),
+            // new FloatingText(this.bgWidth, this.bgHeight, 'Kim', 64, 1,'rgba(255, 255, 255, 1)')
         ];
-        this.curtains = new Curtains(this.ctx, this.bgWidth, this.bgHeight, 'rgba(0, 0, 255, 1)');
+        // this.curtains = new Curtains(this.ctx, this.bgWidth, this.bgHeight, 'rgba(0, 0, 255, 1)');
+        this.curtains = new Curtains(this.ctx, this.bgWidth, this.bgHeight, 'rgba(255, 255, 255, 0.5)');
 
         window.requestAnimationFrame(this.animate.bind(this));
     }
 
     resize() {
-        // this.canvas.width = this.bgWidth * this.scale; // ON/OFF(A)
-        // this.canvas.height = this.bgHeight * this.scale; // ON/OFF(A)
-
         // Set the width and height in canvas pixels
-        this.canvas.width = 676 * this.scale;   
-        this.canvas.height = 394 * this.scale;
+        this.canvas.width = this.bgWidth * this.scale;
+        this.canvas.height = this.bgHeight * this.scale;
         this.ctx!.scale(this.scale, this.scale); // Scale the context to ensure that the drawing operations are at the correct scale
     }
 
@@ -58,6 +55,7 @@ export class Canvas {
         window.requestAnimationFrame(this.animate.bind(this));
         // Clear page
         this.ctx!.clearRect(0, 0, this.bgWidth, this.bgHeight);
+
         // Draw texts
         this.texts.forEach((text) => {
             text.draw(this.ctx!);
@@ -66,9 +64,11 @@ export class Canvas {
 
         // this.ctx.globalCompositeOperation = 'lighter';
         // Draw curtains
-        this.curtains.draw(this.ctx!, 'white');
+        // this.curtains.draw(this.ctx!, 'white');rgba(255, 255, 255, 0.5)
+        this.curtains.draw(this.ctx!, 'rgba(241, 250, 255, 1)');
         // Temorary nameholder, will be modified using pixi.js
-        this.ctx!.fillStyle = 'blue';
+        // this.ctx!.fillStyle = 'blue';
+        this.ctx!.fillStyle = 'rgba(255, 255, 255, 0.5)';
         this.ctx!.font = `bold 24px Arial`;
         this.ctx!.textBaseline = "middle";
         this.ctx!.textAlign = "center";
@@ -89,8 +89,7 @@ export class Canvas {
 
         this.texts[0].textHeight = minpx + range * ratio;
         this.texts[1].textHeight = maxpx - range * ratio;
-        this.texts[2].textHeight = minpx + range * ratio;
-        this.texts[3].textHeight = maxpx - range * ratio;
+        // this.texts[2].textHeight = minpx + range * ratio;
     }
 
     nextPage(e :MouseEvent) {

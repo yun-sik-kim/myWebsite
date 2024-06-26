@@ -1,22 +1,36 @@
 "use client"
 import { useEffect, useRef, useState } from "react";
-import { Canvas } from "./Canvas/Canvas";
+import { Canvas } from "./Canvas1/Canvas";
 
 export default function CanvasReact() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    let [dimension, setDimension] = useState({width: 0, height: 0});
 
     useEffect(() => {
-      // TRIED TO MAKE WIDTH HEIGHT AUTO DETECT FUNCTION
-      // let canvasElement = document.getElementsByClassName(styles.hero_image);
-      // let rect = canvasElement.getBoundingClientRect();
+      function screenRatio(width: number){
+        const phi = (1 + Math.sqrt(5)); // Golden ratio
+        const height = width / phi;
+        return height;
+      }
 
       if (canvasRef.current) {
-        new Canvas(canvasRef.current);
+        const rect = canvasRef.current.getBoundingClientRect(); 
+        const width = rect.width;
+        const height = rect.height;
+        // const height = screenRatio(rect.width) * 2;
+        new Canvas(canvasRef.current, width, height);
       }
     }, []);
 
     return (     
-      <canvas id="myCanvas" ref={canvasRef} style={{borderRadius: '9px', width: '676px', height: '394px'}} />
+      <canvas id="myCanvas" ref={canvasRef} 
+      style={{
+        borderRadius: '9px', 
+        width: '100%', 
+        height: '100%', 
+        backgroundImage: 'url("/ui:ux.jpeg")',
+        backgroundSize: 'cover',          // Ensures the background image covers the entire element
+        backgroundPosition: 'center',     // Centers the background image
+        backgroundRepeat: 'no-repeat'     // Ensures the image does not repeat
+      }} />
     );
   }

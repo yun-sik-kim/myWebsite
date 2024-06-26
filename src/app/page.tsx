@@ -1,54 +1,47 @@
 import { connectDB } from "@/../util/database"
-import { MongoClient } from "mongodb"
 import styles from "./CSS/page.module.css"
-import CanvasReact from "./Model/CanvasReact"
-import Card from "./Model/Card"
-import NewCard from "./Model/NewCard"
+import MainPage from "@/app/Model/MainPage";
 
 export default async function BlogHome() {
     const client = await connectDB; // !!! DB in/output code must be written inside server component only. (user can read in client component)
     const db = client.db("blog");
-    let result = await db.collection('post').find().sort({ date: -1 }).toArray();
-    const newPost = 0;
+    let posts = await db.collection('post').find().sort({ date: -1 }).toArray();
+    let plainPosts = posts.map((post)=>{
+      return(
+        {
+          id: post._id.toString(),
+          postNo: post.postNo,
+          category: post.category,
+          title: post.title,
+          subTitle: post.subTitle,
+          date: post.date,
+          tag: post.tag,
+          context: post.context,
+        })
+    });
+    
+    let categories = await db.collection('categoryList').find().toArray();
+    let plainCategories = categories.map((category)=>{
+      return(
+        {
+          id: category._id.toString(),
+          categoryName: category.categoryName,
+          imgUrl: category.imgUrl
+        })
+    });
+
+    // Separate 'all' from the rest of the categories
+    let allCategory = plainCategories.filter(category => category.categoryName === 'all');
+    let otherCategories = plainCategories.filter(category => category.categoryName !== 'all');
+    // Sort the other categories alphabetically
+    otherCategories.sort((a, b) => a.categoryName.localeCompare(b.categoryName));
+    // Combine 'all' with the sorted categories
+    let sortedCategories = allCategory.concat(otherCategories);
+    // console.log(sortedCategories[1].id);
 
     return (
-        <div className={styles.grid_system}>
-          <div className={styles.hero_image}>
-            <CanvasReact />
-          </div>
-          <div className={styles.new_post}>
-            <NewCard key={result[newPost]._id.toString()}    // !!!Need unite props into one code. props are spread all over the codes
-              id={result[newPost]._id.toString()}
-              title={result[newPost].title} 
-              subTitle={result[newPost].subTitle}
-              colour={result[newPost].colour}
-              date={result[newPost].date}
-            />
-          </div>
-          {
-            result.map((a: any, i: number)=>{
-              let title = result[i].title;
-              let subtitle = result[i].subTitle;
-              let maxTitleLength = 42;
-              let maxSubLength = 65;
-              
-              if (title.length > maxTitleLength) {
-                title = title.slice(0,maxTitleLength) + '...';
-              }
-              if (subtitle.length > maxSubLength) {
-                subtitle = subtitle.slice(0,maxSubLength) + '...';
-              }
-                return (
-                    <Card key={result[i]._id.toString()}    // !!!Need unite props into one code. props are spread all over the codes
-                    id={result[i]._id.toString()}
-                    title={title} 
-                    subTitle={subtitle}
-                    colour={result[i].colour}
-                    date={result[i].date}
-                    />
-                )
-            })
-          }
-        </div>
+      <>
+        <MainPage categories={sortedCategories} posts={plainPosts}/>
+      </>
     ) 
 }

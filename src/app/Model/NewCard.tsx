@@ -14,7 +14,7 @@ export default function NewCard(props: any) {
     const category : string = props.category;
 
     return (
-        <div className={styles.card} //className={isMouseHover ? styles.card_hover : styles.card} 
+        <div  //className={isMouseHover ? styles.card_hover : styles.card} 
         style={{backgroundColor : colour}}>
             <Link 
             href={`content/${id}`}

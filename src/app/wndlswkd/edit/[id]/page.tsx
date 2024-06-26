@@ -1,7 +1,11 @@
 import EditForm from "@/app/wndlswkd/edit/[id]/EditForm";
+import styles from "@/app/wndlswkd/CSS/page.module.css"
 import { connectDB } from "@/../util/database"
 import { ObjectId } from "mongodb";
-import styles from "@/app/wndlswkd/CSS/page.module.css"
+
+import { GET } from '@/app/api/auth/[...nextauth]/route'
+import { getServerSession } from "next-auth";
+import { notFound } from "next/navigation";
 
 interface PostData {
     postNo: number;
@@ -15,6 +19,11 @@ interface PostData {
 }
 
 export default async function Edit(props: any) {
+    let session = await getServerSession(GET);
+    if (!session) {  
+        return notFound();
+    }
+    
     const db = (await connectDB).db("blog");
     let result = await db.collection('post').findOne(
         {

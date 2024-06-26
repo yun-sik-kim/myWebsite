@@ -5,7 +5,6 @@ import styles from "./../CSS/page.module.css"
 
 export default function Card(props: any) {
     const [isMouseHover, setIsMouseHover] = useState(false);
-
     const id :string = props.id;
     const title :string = props.title;
     const subTitle :string = props.subTitle;
@@ -15,7 +14,7 @@ export default function Card(props: any) {
 
     return (
         <div className={styles.card} //className={isMouseHover ? styles.card_hover : styles.card} 
-        style={{backgroundColor : colour}}>
+        style={{backgroundColor : 'rgba(250, 219, 109, 1)'}}>
             <Link 
             href={`content/${id}`}
             onMouseEnter={() => setIsMouseHover(true)}

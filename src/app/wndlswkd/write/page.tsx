@@ -1,23 +1,26 @@
 import WriteForm from "@/app/wndlswkd/write/WriteForm";
-import styles from "@/app/wndlswkd/CSS/page.module.css"
 import { connectDB } from "@/../util/database"
+import { GET } from '@/app/api/auth/[...nextauth]/route'
+import { getServerSession } from "next-auth";
+import { notFound } from "next/navigation";
 
 export default async function Write() {
+    let session = await getServerSession(GET);
+    if (!session) {  
+        return notFound();
+    }
+
     const db = (await connectDB).db("blog");
     let result = await db.collection('postNo').findOne({});
 
     if (!result) {
         return (
-            <p>The page does not exist check DB</p>
+            <p>The collection does not exist check DB</p>
         )
     };
     return (
-        <div className={styles.grid_system}>
-            <div className={styles.main_content}>
-                <WriteForm 
-                    postNo={result.totalPost}
-                />
-            </div>
-        </div>
+        <WriteForm 
+            postNo={result.totalPost}
+        />
     );
 }

@@ -1,0 +1,18 @@
+.edit_page {
+    position: relative;
+    top: 5rem;
+    display: grid;
+    grid-template-columns: repeat(12, 4.8rem);
+    gap: 0.87rem; /* Gutter width */
+    height: 100%;
+
+    .writing_part {
+        grid-column: 1 / 7;
+        display: flex;
+        flex-direction: column;
+    }
+    .preview_part {
+        grid-column: 7 / 13;
+    }
+}
+

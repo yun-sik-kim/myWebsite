@@ -7,8 +7,9 @@ import Link from "next/link";
 import { GET } from '@/app/api/auth/[...nextauth]/route'
 import { getServerSession } from "next-auth";
 import LogoutBtn from "./Model/LogoutBtn";
+import WriteBtn from "./Model/WriteBtn";
 
-const myFont = localFont({ src: '/fonts/PretendardVariable.woff2' })
+const myFont = localFont({ src: './../../public/fonts/PretendardVariable.woff2' })
 
 export const metadata: Metadata = {
   title: "Frontend Developer Yunsik Kim",
@@ -36,7 +37,10 @@ export default async function RootLayout({
               <li><Link className="text" href={'/'}>blog</Link></li>
               <li><Link className="text"href={'/portfolio'}>portfolio</Link></li>
             </div>
-            {session ? <LogoutBtn /> : null}
+            <div>
+              {session ? <WriteBtn/> : null}
+              {session ? <LogoutBtn /> : null}
+            </div>
             <li><Link className="contact_text" href={'/contact'}>Reach out to me</Link></li>
           </ul>
         </nav>

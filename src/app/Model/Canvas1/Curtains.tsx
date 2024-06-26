@@ -24,7 +24,7 @@ export class Curtains {
         const textMarginLeft :number = 65;
         const curtainPos :number = this.mousePos.x;
         // Background color
-        ctx.fillStyle = this.color;
+        ctx.fillStyle = 'rgba(241, 250, 255, 1)';
         ctx.beginPath();
         ctx.fillRect(this.mousePos.x, 0, this.region.x, this.region.y);
         ctx.globalCompositeOperation = 'xor';

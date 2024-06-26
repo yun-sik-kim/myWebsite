@@ -1,29 +1,135 @@
-.grid_system {
+.set_grid {
   top: 252px;
   position: relative;
   display: grid;
-  grid-template-columns: repeat(12, 67px);
-  gap: 20px; /* Gutter width */
+  grid-template-columns: repeat(12, 4.8rem);
+  gap: 0.87rem; /* Gutter width */
 }
-.grid_system .hero_image {
-  grid-column: 1/9;
-  height: 394px;
+
+.set_main_grid {
+  top: 252px;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, 4.8rem);
+  gap: 0.87rem; /* Gutter width */
+  row-gap: 8rem;
+}
+.set_main_grid .hero_section {
+  grid-column: 1/13;
+  aspect-ratio: 2.618/1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  -moz-column-gap: 0.2rem;
+       column-gap: 0.2rem;
+}
+.set_main_grid .hero_section .main_image {
+  width: 93%;
+  height: 100%;
   background-color: transparent;
   border-radius: 9px;
+  box-shadow: inset 0px 0px 3px -2px rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
 }
-.grid_system .new_post {
+.set_main_grid .hero_section .main_image img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  border-radius: 9px 0px 0px 9px;
+}
+.set_main_grid .hero_section .main_image .title {
+  text-align: center;
+  font-size: 96px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100px;
+}
+.set_main_grid .hero_section .main_image .category {
+  width: 100%;
+  top: calc(50% - 62px);
+  position: absolute;
+  text-align: center;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.set_main_grid .hero_section .side_image {
+  width: calc((100% - 93%) / 2);
+  height: 100%;
+  background-color: transparent;
+  border-radius: 9px;
+  box-shadow: inset 0px 0px 3px -2px rgba(0, 0, 0, 0.75);
+  color: black;
+  z-index: -1;
+  position: relative;
+}
+.set_main_grid .hero_section .side_image img {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  border-radius: 0px 9px 9px 0px;
+  -o-object-fit: cover;
+     object-fit: cover; /* Ensures the image covers the entire container */
+  -o-object-position: center;
+     object-position: center; /* Centers the image within the container */
+}
+.set_main_grid .hero_section .side_image .rotated_text {
+  transform: rotate(90deg); /* Rotates the text by 90 degrees */
+  position: relative;
+  bottom: 77px;
+  left: -8px;
+  font-size: 16px;
+  font-weight: 300;
+}
+.set_main_grid .new_post {
+  aspect-ratio: 1.618/1;
   grid-column: 9/13;
   background-color: rgb(210, 210, 211);
   border-radius: 9px;
+  box-shadow: inset 0px 0px 3px -2px rgba(0, 0, 0, 0.75);
+}
+.set_main_grid .category_bar {
+  grid-column: 1/13;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  height: 3rem;
+  top: 5rem;
+  padding: 6px 724px 5px 0px;
+  align-items: center;
+}
+.set_main_grid .category_bar .button {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  padding: 6px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 25px;
+  background: #000;
+  color: #FFF;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.32px;
+  cursor: pointer;
 }
 
 .card {
+  box-shadow: inset 0px 0px 3px -2px rgba(0, 0, 0, 0.75);
+  aspect-ratio: 1.618/1;
   position: relative;
   grid-column: span 4;
   grid-row: span 1;
-  height: 203px;
   border-radius: 9px;
-  font-family: Pretendard;
   box-sizing: border-box;
   padding: 20px;
 }
@@ -40,10 +146,10 @@
   color: #000;
 }
 .card .link .title .main_title {
-  width: 203px;
+  width: 67%;
   font-size: 24px;
   font-style: normal;
-  font-weight: 900;
+  font-weight: 800;
   line-height: normal;
 }
 .card .link .title .sub_title {
@@ -87,7 +193,7 @@
   margin: 10px;
   aspect-ratio: 1.618;
   border-radius: 9px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  box-shadow: inset 0px 0px 3px -2px rgba(0, 0, 0, 0.75);
 }
 .card_hover a {
   position: relative;
