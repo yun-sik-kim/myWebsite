@@ -62,7 +62,8 @@ export default function MainImage(props: any) {
                 :
                 <>
                     <div className={styles.main_image} style={{color: textColor}}>
-                    <Image src={newCategories[0].imgUrl} alt={`Picture of ${newCategories[0].categoryName}`} />
+                    {/* <Image src={newCategories[0].imgUrl} alt={`Picture of ${newCategories[0].categoryName}`} width={500} height={500} /> */}
+                    <img src={newCategories[0].imgUrl} />
                     <h2 className={styles.title}>blog</h2>
                     <h3 className={styles.category}>{newCategories[0].categoryName}</h3>
                     </div>
@@ -89,7 +90,8 @@ return (
             :
             <>
                 <div className={styles.side_image}>
-                    <Image src={src} alt={`Picture of ${categoryName}`}/>
+                    {/* <Image src={src} alt={`Picture of ${categoryName}`} width={500} height={500} /> */}
+                    <img src={src} />
                     <p className={styles.rotated_text} style={{color: textColour}}>{categoryName}</p>
                 </div>
             </>
