@@ -3,7 +3,7 @@ import localFont from 'next/font/local'
 import "./CSS/globals.css";
 import Image from "next/image";
 import Link from "next/link";
-// import { Footer } from "./Footer";
+
 import { GET } from '@/app/api/auth/[...nextauth]/route'
 import { getServerSession } from "next-auth";
 import LogoutBtn from "./Model/LogoutBtn";
