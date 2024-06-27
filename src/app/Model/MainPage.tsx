@@ -3,14 +3,16 @@ import { useState, useEffect, useCallback } from "react";
 import MainImage from "@/app/Model/MainImage"
 import CardSection from "@/app/Model/CardSection"
 import styles from "@/app/CSS/page.module.css"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons"; 
 
-interface Category {
+export interface Category {
     id: string;
     categoryName: string;
     imgUrl: string;
 }
 
-interface Post {
+export interface Post {
     id: string;
     postNo: number;
     category: string;
@@ -21,61 +23,69 @@ interface Post {
     context: string;
 }
 
-export default function MainPage({ categories, posts }: { categories: any, posts: any }) {
-    const ctgList = categories.map((category: Category) => category.categoryName);
-    // const [ctgList, setCtgList] = useState(categories.map((category: Category) => category.categoryName));
-    const [currentCtg, setCurrentCtg] = useState(ctgList[0]);
-    const [mainCtg, setMainCtg] = useState(categories[0]);
+export default function MainPage({ categories, posts }: { categories: Category[], posts: Post[] }) {
+    const [ctgs, setCtg] = useState(categories);
+    const [currentPosts, setCurrentPosts] = useState(posts);
+    const ctgBar = [... categories];
 
     const getCurrentPosts = useCallback(() => {
         return posts.filter((post: Post) => {
-            if (currentCtg === 'all') {
+            if (ctgs[0].categoryName === 'all') {
                 return true;
             } else {
-                return post.category === currentCtg;
+                return post.category === ctgs[0].categoryName;
             }
         });
-    }, [currentCtg, posts]);
-    const [currentPosts, setCurrentPosts] = useState(getCurrentPosts());
+    }, [ctgs]);
 
     useEffect(() => {
         setCurrentPosts(getCurrentPosts());
-        const ctgIndex = categories.findIndex((category: Category) => category.categoryName === currentCtg);
-        setMainCtg(categories[ctgIndex]);
-    }, [currentCtg, categories, getCurrentPosts]);
-    const changeCategory = (category: string) => {
-        setCurrentCtg(category);
-    }
+    }, [ctgs, getCurrentPosts]);
 
-    // const moveIndexRight = () => {
-    //     if (currentCtg > categories.length) {
-    //         setCurrentIndex(0)
-    //     } else {
-    //         setCurrentIndex(mainIndex + 1);
-    //     }
-    // };
+    const handleCategory = (selectedCtg: Category) => {
+        const index = ctgs.findIndex(category => category.id === selectedCtg.id);
+        if (index !== -1) {
+            const rearrangedCategories = [
+                ...ctgs.slice(index),
+                ...ctgs.slice(0, index)
+            ];
+            setCtg(rearrangedCategories);
+        }
+    }
     
-    // const moveIndexLeft = () => {
-    //     if (currentCtg === 0) {
-    //         setCurrentIndex(mainIndex + categories.length)
-    //     } else {
-    //         setCurrentIndex(mainIndex -1);
-    //     }
-    // };
+    const moveCtgRight = () => {
+        const rearrangedCategories= [
+            ...ctgs.slice(1),
+            ctgs[0]
+        ];
+        setCtg(rearrangedCategories);
+    };
+    
+    const moveCtgLeft = () => {
+        const rearrangedCategories = [
+            ...ctgs.slice(-1),
+            ...ctgs.slice(0, -1)
+        ];
+        setCtg(rearrangedCategories);
+    };
 
     return (
         <div>
             <div className={styles.set_main_grid}>
                 <div className={styles.hero_section}>
-                    <button>Left</button>
-                    <MainImage mainCtg={mainCtg} categories={categories} />
-                    <button>Right</button>
+                    {/* <button onClick={moveCtgLeft}> */}
+                    <FontAwesomeIcon icon={faChevronLeft} onClick={moveCtgLeft} style={{width: '22px', height: '22px'}} />
+                    {/* </button> */}
+                    <MainImage categories={ctgs} />
+                    {/* <button onClick={moveCtgLeft}> */}
+                    <FontAwesomeIcon icon={faChevronRight} onClick={moveCtgRight} style={{width: '22px', height: '22px'}} />
+                    {/* </button> */}
                 </div>
                 <div className={styles.category_bar}> 
                     {
-                        ctgList.map((ctg: any, i: number) => {
+                        ctgBar.map((ctg: Category, i: number) => {
                             return (
-                                <button key={ctg} className={styles.button} onClick={() => changeCategory(ctg)}>{ctg}</button>
+                                <button key={i} className={styles.button} onClick={()=>handleCategory(ctg)}>{ctg.categoryName}</button>
                             )
                         })
                     }

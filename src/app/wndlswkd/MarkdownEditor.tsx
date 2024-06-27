@@ -1,7 +1,5 @@
 'use client'
-// import { useState } from 'react';
-// import ReactMarkdown from 'react-markdown';
-// import './CSS/write.css'
+import '@/app/wndlswkd/CSS/write.css'
 
 export default function MarkdownEditor({ context, onInputChange }: { context: string, onInputChange: React.ChangeEventHandler<HTMLTextAreaElement>}) {
 
@@ -11,8 +9,8 @@ export default function MarkdownEditor({ context, onInputChange }: { context: st
             value={context}
             placeholder="Context"
             onChange={onInputChange}
-            rows={10}
-            cols={50}
+            // rows={10}
+            // cols={50}
             required
             />
             {/* <div className='preview_part'>

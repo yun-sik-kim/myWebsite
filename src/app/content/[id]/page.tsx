@@ -49,12 +49,12 @@ export default async function Content(props: any) {
                         </div>
                         <p className={styles.date}>{result.date.toString()}</p>
                     </div>
-                    <div className={styles.hero_image}>
+                    {/* <div className={styles.hero_image}>
 
-                    </div>
+                    </div> */}
                 </div>
             </div>
-            <div style={{gridColumn:'3 / 11'}}>
+            <div className={styles.main_text} >
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
             </div>
         </div>

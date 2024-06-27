@@ -4,7 +4,16 @@
     display: grid;
     grid-template-columns: repeat(12, 67px);
     gap: 20px; /* Gutter width */
+    row-gap: 5rem;
     // max-width: 1024px; /* Adjust based on your design */
+}
+
+.main_text {
+    grid-column: 3 / 11;
+    
+    h1 {
+
+    }
 }
 
 .main_content {

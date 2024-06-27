@@ -1,5 +1,4 @@
 import EditForm from "@/app/wndlswkd/edit/[id]/EditForm";
-import styles from "@/app/wndlswkd/CSS/page.module.css"
 import { connectDB } from "@/../util/database"
 import { ObjectId } from "mongodb";
 
@@ -30,21 +29,26 @@ export default async function Edit(props: any) {
             _id: ObjectId.createFromHexString(props.params.id)  // new ObjectId(product_id) is depreicated
         }
     );
+    if (!result) {
+        return (
+            <p>The collection does not exist check DB</p>
+        )
+    };
+
+    let plainPostData = {
+        postNo: result.postNo,
+        category: result.category,
+        title: result.title,
+        subTitle: result.subTitle,
+        date: result.date,
+        tag: result.tag,
+        context: result.context,
+        colour: result.colour,
+    }
+
+    console.log(plainPostData)
 
     return (
-        <div className={styles.grid_system}>
-            <div className={styles.main_content}>
-                <EditForm 
-                    postNo={result!.postNo}
-                    category={result!.category}
-                    title={result!.title}
-                    subTitle={result!.subTitle}
-                    date={result!.date}
-                    tag={result!.tag}
-                    context={result!.context}
-                    colour={result!.colour}
-                />
-            </div>
-        </div>
+        <EditForm postData={plainPostData} />
     );
 }

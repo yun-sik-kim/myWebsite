@@ -2,9 +2,9 @@
 import { useState, useEffect } from "react";
 import MarkdownEditor from "../MarkdownEditor";
 import ReactMarkdown from "react-markdown";
-import './CSS/write.css'
+import '@/app/wndlswkd/CSS/write.css'
 
-export default function WriteForm(props: any) {
+export default function WriteForm( props: any ) {
   const [postNo, setPostNo] = useState<number | null>(props.postNo);
   const [category, setCategory] = useState<string | null>(props.category);
   const [title, setTitle] = useState<string | null>(props.title);
