@@ -1,7 +1,7 @@
 import { MongoClient } from "mongodb";
 
 // !Next JS setting code
-const url = 'mongodb+srv://imaginebuck02:Cjswosla77@cluster0.yoqodbo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0' // DB access URL
+const url =  process.env.MONGODB_URI as string    // DB access URL
 // const options: any = { useNewUrlParser: true }; //!!! LEGACY
 let connectDB: Promise<MongoClient>;
 

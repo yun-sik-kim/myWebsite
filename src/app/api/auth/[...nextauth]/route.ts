@@ -3,6 +3,7 @@ import GithubProvider from "next-auth/providers/github"
 
 const githubId: string = process.env.GITHUB_ID as string;
 const githubSc: string = process.env.GITHUB_SECRET as string;
+// const JWT_SECRET: string = process.env.JWT_SECRET as string;
 
 const handler = NextAuth({
   providers: [
@@ -12,7 +13,6 @@ const handler = NextAuth({
     }),
     // ...add more providers here
   ],
-  secret: process.env.NEXTAUTH_SECRET,
 })
 
 export { handler as GET, handler as POST }

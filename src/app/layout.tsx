@@ -11,9 +11,14 @@ import WriteBtn from "./Model/WriteBtn";
 
 const myFont = localFont({ src: './../../public/fonts/PretendardVariable.woff2' })
 
+// this is instead of <Head>
 export const metadata: Metadata = {
   title: "Frontend Developer Yunsik Kim",
   description: "Frontend Developer Yunsik's website",
+  icons: {
+    icon: '/images/favicon.ico',
+    apple: '/images/apple-touch-icon-180x180.png',
+  },
 };
 
 export default async function RootLayout({

@@ -36,7 +36,7 @@ export default function MainPage({ categories, posts }: { categories: Category[]
                 return post.category === ctgs[0].categoryName;
             }
         });
-    }, [ctgs]);
+    }, [ctgs, posts]);
 
     useEffect(() => {
         setCurrentPosts(getCurrentPosts());
