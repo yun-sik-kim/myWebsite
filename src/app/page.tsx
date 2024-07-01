@@ -1,6 +1,7 @@
 import { connectDB } from "@/../util/database"
 import styles from "./CSS/page.module.css"
 import MainPage from "@/app/Model/MainPage";
+import { stringify } from "querystring";
 
 export default async function BlogHome() {
     const client = await connectDB; // !!! DB in/output code must be written inside server component only. (user can read in client component)
@@ -20,14 +21,23 @@ export default async function BlogHome() {
         })
     });
     
-    let categories = await db.collection('categoryList').find().toArray();
+    let categories = await db.collection('post').distinct('category');
     let plainCategories = categories.map((category)=>{
       return(
         {
-          id: category._id.toString(),
-          categoryName: category.categoryName,
-          imgUrl: category.imgUrl
+          // id: category._id.toString(),
+          // categoryName: category.categoryName,
+          // imgUrl: category.imgUrl,
+          id: category,
+          categoryName: category,
+          imgUrl: 'test',
         })
+    });
+
+    plainCategories.unshift({
+      id: '0',
+      categoryName: 'all',
+      imgUrl: 'test'
     });
 
     // Separate 'all' from the rest of the categories
@@ -37,7 +47,6 @@ export default async function BlogHome() {
     otherCategories.sort((a, b) => a.categoryName.localeCompare(b.categoryName));
     // Combine 'all' with the sorted categories
     let sortedCategories = allCategory.concat(otherCategories);
-    // console.log(sortedCategories[1].id);
 
     return (
       <>
