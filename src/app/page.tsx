@@ -15,7 +15,7 @@ export default async function BlogHome() {
           title: post.title,
           subTitle: post.subTitle,
           date: post.date,
-          tag: post.tag,
+          tags: post.tags,
           context: post.context,
         })
     });

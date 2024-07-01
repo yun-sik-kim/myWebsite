@@ -1,262 +1,415 @@
+$nav-height: 4.5rem;
+$brand-colour: #007AFF;
+$colour2: #ff82b2;
+$accent-colour: #F9F871;
+$white: #F2F2F7;
+// $white: #F7F9FF;
+$black: #1C1C1E;
+$default-border-radius: 9px;
+
 $card-height: 203px;
 $card-main-color: #F8F6E3;
 $white-colour: #FFF;
 $border-radius: 9px;
-$shadow: inset 0px 0px 3px -2px rgba(0,0,0,0.75);
+// $shadow: inset 0px 0px 3px -2px rgba(0,0,0,0.75);
 // $shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25) inset;
-$golden-ratio: 1.618;
+$shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.05);
 $main-width: 93%;
 
-.set_grid {
-    top: 40+64+148px;
-    position: relative;
-    // max-width: 1024px; /* Adjust based on your design */
-    display: grid;
-    grid-template-columns: repeat(12, 4.8rem);
-    gap: 0.87rem; /* Gutter width */
-}
-
 .set_main_grid {
-    top: 40+64+148px;
+    top: 72 + 64px;
     position: relative;
-    // max-width: 1024px; /* Adjust based on your design */
     display: grid;
-    grid-template-columns: repeat(12, 4.8rem);
-    gap: 0.87rem; /* Gutter width */
-    row-gap: 8rem;
+    grid-template-columns: repeat(12, 4.5rem);
+    gap: 0.875rem; /* Gutter width */
+    // row-gap: 4rem;
+    // z-index: 99;
 
-    .hero_section {
+    .main_section {
         grid-column: 1 / 13;
-        aspect-ratio: 2.618 / 1;
         display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        column-gap: 0.2rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+        align-self: stretch;
+        margin-bottom: 4rem;
 
-        .main_image {
-            width: $main-width;
-            height: 100%;
-            background-color: transparent;
-            border-radius: $border-radius;
-            box-shadow: $shadow;
+        .hero_section {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            img {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                z-index:-1;
-                border-radius: 9px 0px 0px 9px;
+            flex-direction: row;
+            align-items: flex-start;
+            align-self: stretch;
+            
+            .title {
+                display: flex;
+                flex-direction: column;
+                height: 226px;
+                align-items: flex-start;
+                gap: 10px;
+                flex: 1 0 0;
+                h1 {
+                    font-size: 64px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                }
+                h2 {
+                    font-size: 36px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                }
             }
-            .title{
-                text-align: center;
-                font-size: 96px;
-                font-style: normal;
-                font-weight: 600;
-                line-height: 100px;
+            .interactive_section {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: flex-end;
+                gap: 10px;
+                flex: 1 0 0;
+                align-self: stretch;
+    
+                text-align: right;
+                .quesiton{
+                    font-size: 36px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                }
+                .answer{
+                    font-size: 64px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                }
             }
-            .category{
-                width: 100%;
-                top: calc(50% - 62px);
-                position: absolute;
+        }
+        .category_bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+    
+            .button {
+                display: flex;
+                padding: 6px 20px;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+
+                border: none;
+                border-radius: 25px;
+                background: $black;
+                // box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.30);
+                outline: none;
+
+                color: $white;
+
                 text-align: center;
-                font-size: 24px;
+                font-size: 16px;
                 font-style: normal;
                 font-weight: 500;
                 line-height: normal;
+                letter-spacing: 0.03rem;
+                // box-shadow: none;
+    
+                // padding: 6px 20px;
+                // justify-content: center;
+                // align-items: center;
+                // gap: 10px;
+                // border-radius: 25px;
+                // background: #000;
+    
+                // color: $white-colour;
+                // font-size: 16px;
+                // font-style: normal;
+                // font-weight: 400;
+                // line-height: 24px;
+                // letter-spacing: -0.32px;
+    
+                // cursor: pointer;
             }
-        }
-        .side_image {
-            width: calc((100% - #{$main-width}) / 2);
-            height: 100%;
-            background-color: transparent;
-            border-radius: $border-radius;
-            box-shadow: $shadow;
-            color: black;
-            z-index:-1;
-            position: relative;
-            
-            img {
-                width: 100%;
-                height: 100%;
-                z-index:-1;
-                border-radius: 0px 9px 9px 0px;
-                object-fit: cover; /* Ensures the image covers the entire container */
-                object-position: center; /* Centers the image within the container */
-            }
-            .rotated_text {
-                transform: rotate(90deg); /* Rotates the text by 90 degrees */
-                position: relative;
-                bottom: 77px;
-                left: -8px;
-                // transform-origin: center; /* Adjusts the origin of the transformation */
-                // white-space: nowrap; /* Prevents text wrapping, useful for longer text */
-                font-size: 16px;
-                font-weight: 300;
+            .active {
+                background: $colour2;
+                color: $accent-colour;
             }
         }
     }
-    .new_post {
-        aspect-ratio: 1.618 / 1;
-        grid-column: 9 / 13;
-        background-color: rgb(210, 210, 211);
-        border-radius: $border-radius;
-        box-shadow: $shadow;
-    }
-    .category_bar {
-        // position: relative;
+
+    .card_section{
         grid-column: 1 / 13;
         display: flex;
+        padding-top: 32px;
         align-items: flex-start;
-        gap: 16px;
-        height: 3rem;
-        top: 5rem;
-        padding: 6px 724px 5px 0px;
-        align-items: center;
-
-        .button {
-            border: none;
-            outline: none;
-            box-shadow: none;
-
-            padding: 6px 20px;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            border-radius: 25px;
-            background: #000;
-
-            color: $white-colour;
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 24px;
-            letter-spacing: -0.32px;
-
-            cursor: pointer;
-        }
+        align-content: flex-start;
+        gap: 14px;
+        align-self: stretch;
+        flex-wrap: wrap;
     }
 }
+    
+
+        // .main_image {
+        //     width: $main-width;
+        //     height: 100%;
+        //     background-color: transparent;
+        //     border-radius: $border-radius;
+        //     box-shadow: $shadow;
+        //     display: flex;
+        //     flex-direction: column;
+        //     justify-content: center;
+        //     position: relative;
+        //     img {
+        //         position: absolute;
+        //         width: 100%;
+        //         height: 100%;
+        //         z-index:-1;
+        //         border-radius: 9px 0px 0px 9px;
+        //     }
+        //     .title{
+        //         text-align: center;
+        //         font-size: 96px;
+        //         font-style: normal;
+        //         font-weight: 600;
+        //         line-height: 100px;
+        //     }
+        //     .category{
+        //         width: 100%;
+        //         top: calc(50% - 62px);
+        //         position: absolute;
+        //         text-align: center;
+        //         font-size: 24px;
+        //         font-style: normal;
+        //         font-weight: 500;
+        //         line-height: normal;
+        //     }
+        // }
+        // .side_image {
+        //     width: calc((100% - #{$main-width}) / 2);
+        //     height: 100%;
+        //     background-color: transparent;
+        //     border-radius: $border-radius;
+        //     box-shadow: $shadow;
+        //     color: black;
+        //     z-index:-1;
+        //     position: relative;
+            
+        //     img {
+        //         width: 100%;
+        //         height: 100%;
+        //         z-index:-1;
+        //         border-radius: 0px 9px 9px 0px;
+        //         object-fit: cover; /* Ensures the image covers the entire container */
+        //         object-position: center; /* Centers the image within the container */
+        //     }
+        //     .rotated_text {
+        //         transform: rotate(90deg); /* Rotates the text by 90 degrees */
+        //         position: relative;
+        //         bottom: 77px;
+        //         left: -8px;
+        //         // transform-origin: center; /* Adjusts the origin of the transformation */
+        //         // white-space: nowrap; /* Prevents text wrapping, useful for longer text */
+        //         font-size: 16px;
+        //         font-weight: 300;
+        //     }
+        // }
+    
+//     .new_post {
+//         aspect-ratio: 1.618 / 1;
+//         grid-column: 9 / 13;
+//         background-color: rgb(210, 210, 211);
+//         border-radius: $border-radius;
+//         box-shadow: $shadow;
+//     }
+//     .category_bar {
+//         // position: relative;
+//         grid-column: 1 / 13;
+//         display: flex;
+//         align-items: flex-start;
+//         gap: 16px;
+//         height: 3rem;
+//         top: 5rem;
+//         padding: 6px 724px 5px 0px;
+//         align-items: center;
+
+//         .button {
+//             border: none;
+//             outline: none;
+//             box-shadow: none;
+
+//             padding: 6px 20px;
+//             justify-content: center;
+//             align-items: center;
+//             gap: 10px;
+//             border-radius: 25px;
+//             background: #000;
+
+//             color: $white-colour;
+//             font-size: 16px;
+//             font-style: normal;
+//             font-weight: 400;
+//             line-height: 24px;
+//             letter-spacing: -0.32px;
+
+//             cursor: pointer;
+//         }
+//     }
+// }
+
 
 .card {
-    box-shadow: $shadow;
-    aspect-ratio: 1.618 / 1;
-    position: relative;
-    grid-column: span 4;
+    color: inherit;
+    text-decoration: none;
+
+    grid-column: span 3;
     grid-row: span 1;
-    // height: $card-height;
-    border-radius: $border-radius;
-    // font-family: Pretendard;
-    box-sizing: border-box;
-    padding: 20px;
-    .link {
-        display: block;
-        height: 100%;
-        width: 100%;
-        .title {
-            display: inline-flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 8px;
-            color: #000;
+    aspect-ratio: 1;
 
-            .main_title {
-                // width: 203px;
-                width: 67%;
-                font-size: 24px;
-                font-style: normal;
-                font-weight: 800;
-                line-height: normal;
-            }
+    overflow: hidden;
 
-            .sub_title {
-                position: absolute;
-                top: 117px;
-                width: 203px;
-                font-size: 13px;
-                font-style: normal;
-                font-weight: 400;
-                line-height: normal;
-            }
-            
-        }
-        
-        .date {
-            color: #000;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 12px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-        }
+    display: flex;
+    flex-direction: column;
 
-        .progress_bar {
-            position: absolute;
-            bottom: 20px;
-            width: 288px;
-            height: 13px;
-            border-radius: 99px;
-            background: #D9D9D9;
-        }
-        .progress_bar_achieve {
-            position: absolute;
-            bottom: 20px;
-            width: 113px;
-            height: 13px;
-            border-radius: 99px;
-            background: #000;
-        }
-    }
-}
+    padding: 16px 14px;
+    justify-content: space-between;
+    align-items: flex-end;
+    
+    border-radius: 9px;
+    background: $white;
+    // box-shadow: $shadow;
 
-.card_hover {
-    position: relative;
-    margin: 10px;
-    aspect-ratio: 1.618;
-    border-radius: $border-radius;
-    box-shadow: $shadow;
-
-    a {
-        position: relative;
-        width: 100%;
-        height: 100%;
+    .title {
         display: flex;
         justify-content: center;
+        align-items: flex-start;
+        align-self: stretch;
 
-        h3 {
-            position: absolute;
-            top: 2px;
-            color: white;
-            font-size: 24px;
-            font-weight: 250;
-            transition: 0.3s;
+        .main_title {
+            // align-self: stretch;
+            flex: 1 0 0;
+            color: $black;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 31px; /* 96.875% */
+            width: 61.8%;
         }
-        .details {
-            box-sizing: border-box;
-            padding-left: 20px;
-            padding-right: 20px;
-            position: absolute;
-            height: 80%;
-            bottom: 0;
-            right: 0;
-            left: 0;
-            border-radius: $border-radius;
-            background-color: $card-main-color;
-            transition: height 0.3s
+
+        .rectangle {
+            width: 64px;
+            height: 64px;
+            // width: 38.2%;
+            // aspect-ratio: 1;
+            background-color: $colour2;
         }
-        .date {
-            position: absolute;
-            bottom: 3px;
-            left: 4px;
-            color: white;
+        
+    }
+    
+    .context {
+        align-self: stretch;
+        color: $black;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 18px; /* 112.5% */
+        letter-spacing: 0.16px;
+        // overflow: hidden;
+    }
+
+    .tag_section {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 7px;
+
+        .tags {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+
+            p {
+                text-align: center;
+                font-size: 10px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 0px; /* 0% */
+            }
+        }
+
+        .underline {
+            height: 2px;
+            align-self: stretch;
+            background: $black;
         }
     }
+
+    // .link {
+    //     // display: block;
+    //     height: 100%;
+    //     width: 100%;
+        
+
+    //     // .progress_bar {
+    //     //     position: absolute;
+    //     //     bottom: 20px;
+    //     //     width: 288px;
+    //     //     height: 13px;
+    //     //     border-radius: 99px;
+    //     //     background: #D9D9D9;
+    //     // }
+    //     // .progress_bar_achieve {
+    //     //     position: absolute;
+    //     //     bottom: 20px;
+    //     //     width: 113px;
+    //     //     height: 13px;
+    //     //     border-radius: 99px;
+    //     //     background: #000;
+    //     // }
+    // }
 }
+
+// .card_hover {
+//     position: relative;
+//     margin: 10px;
+//     aspect-ratio: 1.618;
+//     border-radius: $border-radius;
+//     box-shadow: $shadow;
+
+//     a {
+//         position: relative;
+//         width: 100%;
+//         height: 100%;
+//         display: flex;
+//         justify-content: center;
+
+//         h3 {
+//             position: absolute;
+//             top: 2px;
+//             color: white;
+//             font-size: 24px;
+//             font-weight: 250;
+//             transition: 0.3s;
+//         }
+//         .details {
+//             box-sizing: border-box;
+//             padding-left: 20px;
+//             padding-right: 20px;
+//             position: absolute;
+//             height: 80%;
+//             bottom: 0;
+//             right: 0;
+//             left: 0;
+//             border-radius: $border-radius;
+//             background-color: $card-main-color;
+//             transition: height 0.3s
+//         }
+//         .date {
+//             position: absolute;
+//             bottom: 3px;
+//             left: 4px;
+//             color: white;
+//         }
+//     }
+// }
 
 
 // .display {

@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import MarkdownEditor from "../MarkdownEditor";
-import ReactMarkdown from "react-markdown";
+import CustumReactMarkdown from "@/app/Model/CustumReactMarkdown";
 import '@/app/wndlswkd/CSS/write.css'
 
 export default function WriteForm( props: any ) {
@@ -10,7 +10,7 @@ export default function WriteForm( props: any ) {
   const [title, setTitle] = useState<string | null>(props.title);
   const [subTitle, setSubTitle] = useState<string | null>(props.subTitle);
   const [date, setDate] = useState<string | null>(props.date);
-  const [tag, setTag] = useState<string | null>(props.tag);
+  const [tags, setTags] = useState<string | null>(props.tags);
   const [context, setContext] = useState<string | null>(props.context);
   const [colour, setColour] = useState<string | null>(props.colour);
 
@@ -35,7 +35,7 @@ export default function WriteForm( props: any ) {
         subTitle,
         date,
         context,
-        tag,
+        tags,
         colour,
       }),
     });
@@ -93,8 +93,8 @@ export default function WriteForm( props: any ) {
           <input
             type="text"
             placeholder="tag"
-            value={tag ?? ""}
-            onChange={(e) => setTag(e.target.value)}
+            value={tags ?? ""}
+            onChange={(e) => setTags(e.target.value)}
             required
           />
           {/* <input type='file' accept='image/*'
@@ -108,7 +108,7 @@ export default function WriteForm( props: any ) {
       <div className='preview_part'>
         <div className='preview_part'>
             <h3>Preview:</h3>
-            <ReactMarkdown>{context}</ReactMarkdown>
+            <CustumReactMarkdown>{context}</CustumReactMarkdown>
         </div>
       </div>
     </div>

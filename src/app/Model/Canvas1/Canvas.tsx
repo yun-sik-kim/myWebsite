@@ -68,7 +68,7 @@ export class Canvas {
         this.curtains.draw(this.ctx!, 'rgba(241, 250, 255, 1)');
         // Temorary nameholder, will be modified using pixi.js
         // this.ctx!.fillStyle = 'blue';
-        this.ctx!.fillStyle = 'rgba(255, 255, 255, 0.5)';
+        this.ctx!.fillStyle = 'rgba(255, 255, 255, 1)';
         this.ctx!.font = `bold 24px Arial`;
         this.ctx!.textBaseline = "middle";
         this.ctx!.textAlign = "center";

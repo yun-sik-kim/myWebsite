@@ -2,9 +2,7 @@ import { connectDB } from "@/../util/database"
 import { ObjectId } from "mongodb";
 import Link from "next/link";
 import styles from './CSS/page.module.css';
-
-import ReactMarkdown from "react-markdown";
-import remarkGfm from 'remark-gfm'
+import CustumReactMarkdown from "@/app/Model/CustumReactMarkdown";
 
 import { GET } from '@/app/api/auth/[...nextauth]/route'
 import { getServerSession } from "next-auth";
@@ -18,10 +16,6 @@ export default async function Content(props: any) {
         }
     ); 
     let session = await getServerSession(GET);
-    // // !!! DELETE after test!!!
-    // if (session) {  
-    //     console.log(session)
-    // }
 
     if (!result) {
         return notFound();
@@ -55,7 +49,7 @@ export default async function Content(props: any) {
                 </div>
             </div>
             <div className={styles.main_text} >
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
+                <CustumReactMarkdown>{markdown}</CustumReactMarkdown>
             </div>
         </div>
     );

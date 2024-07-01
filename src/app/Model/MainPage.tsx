@@ -19,12 +19,13 @@ export interface Post {
     title: string;
     subTitle: string;
     date: string;
-    tag: string;
+    tags: string[];
     context: string;
 }
 
 export default function MainPage({ categories, posts }: { categories: Category[], posts: Post[] }) {
     const [ctgs, setCtg] = useState(categories);
+    const [currentCategory, setCurrentCategory] = useState(categories[0].id);
     const [currentPosts, setCurrentPosts] = useState(posts);
     const ctgBar = [... categories];
 
@@ -43,6 +44,7 @@ export default function MainPage({ categories, posts }: { categories: Category[]
     }, [ctgs, getCurrentPosts]);
 
     const handleCategory = (selectedCtg: Category) => {
+        setCurrentCategory(selectedCtg.id);
         const index = ctgs.findIndex(category => category.id === selectedCtg.id);
         if (index !== -1) {
             const rearrangedCategories = [
@@ -53,39 +55,48 @@ export default function MainPage({ categories, posts }: { categories: Category[]
         }
     }
     
-    const moveCtgRight = () => {
-        const rearrangedCategories= [
-            ...ctgs.slice(1),
-            ctgs[0]
-        ];
-        setCtg(rearrangedCategories);
-    };
+    // const moveCtgRight = () => {
+    //     const rearrangedCategories= [
+    //         ...ctgs.slice(1),
+    //         ctgs[0]
+    //     ];
+    //     setCtg(rearrangedCategories);
+    // };
     
-    const moveCtgLeft = () => {
-        const rearrangedCategories = [
-            ...ctgs.slice(-1),
-            ...ctgs.slice(0, -1)
-        ];
-        setCtg(rearrangedCategories);
-    };
+    // const moveCtgLeft = () => {
+    //     const rearrangedCategories = [
+    //         ...ctgs.slice(-1),
+    //         ...ctgs.slice(0, -1)
+    //     ];
+    //     setCtg(rearrangedCategories);
+    // };
 
     return (
-        <div>
-            <div className={styles.set_main_grid}>
+        <div className={styles.set_main_grid}>
+            <div className={styles.main_section}>
                 <div className={styles.hero_section}>
-                    {/* <button onClick={moveCtgLeft}> */}
-                    <FontAwesomeIcon icon={faChevronLeft} onClick={moveCtgLeft} style={{width: '22px', height: '22px'}} />
-                    {/* </button> */}
+                    <div className={styles.title}>
+                        <h1>tech blog</h1>
+                        <h2>by Yunsik Kim</h2>
+                    </div>
+                    <div className={styles.interactive_section}>
+                        <p className={styles.quesiton}>{`Hi, what's your name?`}</p>
+                        <p className={styles.answer}>______________</p>
+                    </div>
+                    {/* <FontAwesomeIcon icon={faChevronLeft} onClick={moveCtgLeft} style={{width: '22px', height: '22px'}} />
                     <MainImage categories={ctgs} />
-                    {/* <button onClick={moveCtgLeft}> */}
-                    <FontAwesomeIcon icon={faChevronRight} onClick={moveCtgRight} style={{width: '22px', height: '22px'}} />
-                    {/* </button> */}
+                    <FontAwesomeIcon icon={faChevronRight} onClick={moveCtgRight} style={{width: '22px', height: '22px'}} /> */}
                 </div>
                 <div className={styles.category_bar}> 
                     {
                         ctgBar.map((ctg: Category, i: number) => {
                             return (
-                                <button key={i} className={styles.button} onClick={()=>handleCategory(ctg)}>{ctg.categoryName}</button>
+                                <button key={i} 
+                                    className={`${styles.button} ${currentCategory === ctg.id ? styles.active : ''}`}  
+                                    onClick={()=>handleCategory(ctg)}
+                                >
+                                    {ctg.categoryName}
+                                </button>
                             )
                         })
                     }

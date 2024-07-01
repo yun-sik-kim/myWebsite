@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from 'next/font/local'
-import "./CSS/globals.css";
+import "./CSS/layout.css";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -27,24 +27,25 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   let session = await getServerSession(GET);
-  // !!! DELETE after test!!!
-  if (session) {  
-    console.log(session)
-  }
   
   return (
     <html lang="en">
       <body className={`${myFont.className}`}>
+        <div className='fake_nav'></div>
         <nav className='navigation'>
           <ul className='nav'>
+            <Link href={'/'}><Image className="app_logo" src="/ys.svg" width={30} height={30} alt="Logo"/></Link>
             <div id="category">
-              <li><Link href={'/'}><Image className="app_logo" src="/ys.svg" width={30} height={30} alt="Logo"/></Link></li>
-              <li><Link className="text" href={'/'}>blog</Link></li>
-              <li><Link className="text"href={'/portfolio'}>portfolio</Link></li>
-            </div>
-            <div>
+              <li><Link className="text" href={'/'}>About</Link></li>
+              <li><Link className="text" href={'/'}>Blog</Link></li>
+              <li><Link className="text"href={'/portfolio'}>Portfolio</Link></li>
+              <li><Link className="text"href={'https://github.com/yun-sik-kim'}>Github</Link></li>
+              <li><Link className="text"href={'https://www.linkedin.com/in/yunsik-kim/'}>LinkedIn</Link></li>
               {session ? <WriteBtn/> : null}
               {session ? <LogoutBtn /> : null}
+            </div>
+            <div>
+              
             </div>
             <li><Link className="contact_text" href={'/contact'}>Reach out to me</Link></li>
           </ul>

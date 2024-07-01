@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import React, { FormEvent } from 'react';
 
 import MarkdownEditor from "@/app/wndlswkd/MarkdownEditor";
-import ReactMarkdown from "react-markdown";
+import CustumReactMarkdown from '@/app/Model/CustumReactMarkdown';
 import '@/app/wndlswkd/CSS/write.css'
 
 export default function EditForm({ postData }: { postData: any }) {
@@ -95,7 +95,7 @@ export default function EditForm({ postData }: { postData: any }) {
       <div className='preview_part'>
         <div className='preview_part'>
             <h3>Preview:</h3>
-            <ReactMarkdown>{context}</ReactMarkdown>
+            <CustumReactMarkdown>{context}</CustumReactMarkdown>
         </div>
       </div>
     </div>

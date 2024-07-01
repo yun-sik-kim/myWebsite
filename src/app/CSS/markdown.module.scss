@@ -1,0 +1,122 @@
+$nav-height: 4.5rem;
+$brand-colour: #007AFF;
+$colour2: #ff82b2;
+$accent-colour: #F9F871;
+$white: #F2F2F7;
+$black: #1C1C1E;
+$grey1: #444655;
+
+.markdown body {
+    // font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Inter, Ubuntu, sans-serif;
+    line-height: 1.5;
+    color: $black;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  
+  /* Headings */  
+  .markdown h2 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+
+    font-size: 30px;
+    // font-weight: 800;
+    border-bottom: 3px solid $black;
+    padding-bottom: 0.2em;
+  }
+  
+  .markdown h3 {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+
+    font-size: 24px;
+    color: $brand-colour;
+  }
+  
+  .markdown h4 {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+
+    font-size: 1.1rem;
+    color: $grey1;
+  }
+  
+  /* Paragraphs and line breaks */
+  .markdown p {
+    margin-bottom: 1em;
+  }
+  
+  .markdown br {
+    margin-bottom: 0.5em;
+  }
+  
+  /* Inline text styles */
+  .markdown strong {
+    font-weight: bold;
+    color: $colour2;
+  }
+  
+  .markdown em {
+    font-style: italic;
+    color: $colour2;
+  }
+  
+  /* Code blocks and inline code */
+  .markdown pre {
+    background-color: #f6f7f8;
+    border: 1px solid #ebedf0;
+    border-radius: 4px;
+    padding: 1em;
+    overflow-x: auto;
+  }
+  
+  .markdown code {
+    font-family: 'JetBrains Mono', 'Fira Code', Menlo, monospace;
+    font-size: 0.9em;
+    background-color: #f6f7f8;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+  }
+  
+  /* Blockquotes */
+  .markdown blockquote {
+    border-left: 4px solid #3eb4bf;
+    margin: 0;
+    padding-left: 1em;
+    color: #3eb4bf;
+    font-style: italic;
+  }
+  
+  /* Lists */
+  .markdown ul {
+    margin-bottom: 1em;
+    padding-left: 2em;
+  }
+
+  .markdown ol {
+    margin-bottom: 1em;
+    padding-left: 2em;
+  }
+  
+  .markdown li {
+    margin-bottom: 0.5em;
+  }
+  
+  /* Links */
+  .markdown a {
+    color: #2e80f2;
+    text-decoration: underline;
+  }
+  
+  .markdown a:hover {
+    text-decoration: none;
+  }
+  
+  /* Images */
+  .markdown img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: top;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
