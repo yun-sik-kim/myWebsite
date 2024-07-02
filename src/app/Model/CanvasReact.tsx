@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useRef, useState } from "react";
 import { Canvas } from "./Canvas1/Canvas";
+import styles from "@/app/CSS/page.module.css"
 
 export default function CanvasReact() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -22,7 +23,7 @@ export default function CanvasReact() {
     }, []);
 
     return (     
-      <div style={{gridColumn: 'span 3', aspectRatio: '1'}}>
+      <div className={styles.cavas_size}>
         <canvas id="myCanvas" ref={canvasRef} 
           style={{
             borderRadius: '9px', 

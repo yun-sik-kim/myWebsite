@@ -10,6 +10,7 @@
 .main_text {
   grid-column: 3/11;
 }
+
 .main_content {
   grid-column: 1/13;
   display: flex;
@@ -74,4 +75,82 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+@media screen and (max-width: 460px) {
+  .grid_system {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 4rem);
+    gap: 1rem; /* Gutter width */
+    top: 96px;
+    row-gap: 5rem;
+  }
+  .main_content {
+    grid-column: 1/5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 81px;
+  }
+  .main_content .hero_section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 108px;
+  }
+  .main_content .hero_section .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .main_content .hero_section .header .title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+  }
+  .main_content .hero_section .header .title .main_title {
+    color: #000;
+    text-align: center;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100px; /* 104.167% */
+  }
+  .main_content .hero_section .header .title .sub_title {
+    color: #000;
+    width: 304px;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+  .main_content .hero_section .header .date {
+    width: 154px;
+    color: #000;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .main_content .hero_section .hero_image {
+    background-color: burlywood;
+    width: 1024px;
+    height: 576px;
+  }
+  .main_content .paragraph {
+    width: 676px;
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .main_text {
+    grid-column: 1/5;
+  }
 }/*# sourceMappingURL=page.module.css.map */

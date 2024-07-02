@@ -8,6 +8,7 @@ import { GET } from '@/app/api/auth/[...nextauth]/route'
 import { getServerSession } from "next-auth";
 import LogoutBtn from "./Model/LogoutBtn";
 import WriteBtn from "./Model/WriteBtn";
+import NavIcon from "./Model/NavIcon";
 
 const myFont = localFont({ src: './../../public/fonts/PretendardVariable.woff2' })
 
@@ -34,7 +35,7 @@ export default async function RootLayout({
         <div className='fake_nav'></div>
         <nav className='navigation'>
           <ul className='nav'>
-            <Link href={'/'}><Image className="app_logo" src="/ys.svg" width={30} height={30} alt="Logo"/></Link>
+            <Link href={'/'} style={{display: 'flex'}}><Image className="app_logo" src="/ys.svg" width={30} height={30} alt="Logo"/></Link>
             <div id="category">
               <li><Link className="text" href={'/'}>About</Link></li>
               <li><Link className="text" href={'/'}>Blog</Link></li>
@@ -44,10 +45,8 @@ export default async function RootLayout({
               {session ? <WriteBtn/> : null}
               {session ? <LogoutBtn /> : null}
             </div>
-            <div>
-              
-            </div>
             <li><Link className="contact_text" href={'/contact'}>Reach out to me</Link></li>
+            <NavIcon />
           </ul>
         </nav>
         {children}

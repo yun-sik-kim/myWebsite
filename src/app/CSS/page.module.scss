@@ -341,95 +341,218 @@ $main-width: 93%;
             background: $black;
         }
     }
-
-    // .link {
-    //     // display: block;
-    //     height: 100%;
-    //     width: 100%;
-        
-
-    //     // .progress_bar {
-    //     //     position: absolute;
-    //     //     bottom: 20px;
-    //     //     width: 288px;
-    //     //     height: 13px;
-    //     //     border-radius: 99px;
-    //     //     background: #D9D9D9;
-    //     // }
-    //     // .progress_bar_achieve {
-    //     //     position: absolute;
-    //     //     bottom: 20px;
-    //     //     width: 113px;
-    //     //     height: 13px;
-    //     //     border-radius: 99px;
-    //     //     background: #000;
-    //     // }
-    // }
 }
 
-// .card_hover {
-//     position: relative;
-//     margin: 10px;
-//     aspect-ratio: 1.618;
-//     border-radius: $border-radius;
-//     box-shadow: $shadow;
-
-//     a {
-//         position: relative;
-//         width: 100%;
-//         height: 100%;
-//         display: flex;
-//         justify-content: center;
-
-//         h3 {
-//             position: absolute;
-//             top: 2px;
-//             color: white;
-//             font-size: 24px;
-//             font-weight: 250;
-//             transition: 0.3s;
-//         }
-//         .details {
-//             box-sizing: border-box;
-//             padding-left: 20px;
-//             padding-right: 20px;
-//             position: absolute;
-//             height: 80%;
-//             bottom: 0;
-//             right: 0;
-//             left: 0;
-//             border-radius: $border-radius;
-//             background-color: $card-main-color;
-//             transition: height 0.3s
-//         }
-//         .date {
-//             position: absolute;
-//             bottom: 3px;
-//             left: 4px;
-//             color: white;
-//         }
-//     }
-// }
+.cavas_size {
+    grid-column: span 3;
+    aspect-ratio: 1;
+}
 
 
-// .display {
-//     box-sizing: border-box;
-//     grid-area: dis;
-//     width: 100%;
-//     height: 100%;
-//     padding: 10px;
-//     border-radius: $border-radius;
-//     background-color: white;
-//     box-shadow: $shadow;
-// }
-
-// .card_list {
-//     width: 100%;
-//     height: 100%;
-//     display: grid;
-//     grid-template-columns: repeat(4, 25%);
-//     grid-template-rows: min-content;
+@media screen and (max-width: 460px) {
+    .set_main_grid {
+        top: 72px;
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(4, 4rem);
+        gap: 1rem; /* Gutter width */
+        // row-gap: 4rem;
+        // z-index: 99;
     
+        .main_section {
+            grid-column: 1 / 5;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 32px;
+            align-self: stretch;
+            margin-bottom: 4rem;
     
-//     
-// }
+            .hero_section {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                align-self: stretch;
+                
+                .title {
+                    display: flex;
+                    flex-direction: column;
+                    height: 226px;
+                    align-items: flex-start;
+                    gap: 10px;
+                    flex: 1 0 0;
+                    h1 {
+                        font-size: 64px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+                    }
+                    h2 {
+                        font-size: 36px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: normal;
+                    }
+                }
+                .interactive_section {
+                    display: none;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                    align-items: flex-end;
+                    gap: 10px;
+                    flex: 1 0 0;
+                    align-self: stretch;
+        
+                    text-align: right;
+                    .quesiton{
+                        font-size: 36px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: normal;
+                    }
+                    .answer{
+                        font-size: 64px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+                    }
+                }
+            }
+            .category_bar {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+        
+                .button {
+                    display: flex;
+                    padding: 6px 20px;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+    
+                    border: none;
+                    border-radius: 25px;
+                    background: $black;
+
+                    outline: none;
+    
+                    color: $white;
+    
+                    text-align: center;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                    letter-spacing: 0.03rem;
+                }
+                .active {
+                    background: $colour2;
+                    color: $accent-colour;
+                }
+            }
+        }
+    
+        .card_section{
+            grid-column: 1 / 13;
+            display: flex;
+            padding-top: 32px;
+            align-items: flex-start;
+            align-content: flex-start;
+            gap: 14px;
+            align-self: stretch;
+            flex-wrap: wrap;
+        }
+    }
+
+    .card {
+        color: inherit;
+        text-decoration: none;
+    
+        grid-column: span 4;
+        grid-row: span 1;
+        aspect-ratio: 1;
+    
+        overflow: hidden;
+    
+        display: flex;
+        flex-direction: column;
+    
+        padding: 16px 14px;
+        justify-content: space-between;
+        align-items: flex-end;
+        
+        border-radius: 9px;
+        background: $white;
+        // box-shadow: $shadow;
+    
+        .title {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            align-self: stretch;
+    
+            .main_title {
+                // align-self: stretch;
+                flex: 1 0 0;
+                color: $black;
+                font-size: 32px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 31px; /* 96.875% */
+                width: 61.8%;
+            }
+    
+            .rectangle {
+                width: 64px;
+                height: 64px;
+                // width: 38.2%;
+                // aspect-ratio: 1;
+                background-color: $colour2;
+            }
+            
+        }
+        
+        .context {
+            align-self: stretch;
+            color: $black;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 18px; /* 112.5% */
+            letter-spacing: 0.16px;
+            // overflow: hidden;
+        }
+    
+        .tag_section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 7px;
+    
+            .tags {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+    
+                p {
+                    text-align: center;
+                    font-size: 10px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 0px; /* 0% */
+                }
+            }
+    
+            .underline {
+                height: 2px;
+                align-self: stretch;
+                background: $black;
+            }
+        }
+    }
+
+    .cavas_size {
+        grid-column: span 4;
+        aspect-ratio: 1;
+    }
+}
