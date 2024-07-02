@@ -137,8 +137,8 @@ body {
     text-decoration: none;
   }
   .navigation .nav .app_logo {
-    width: 42px;
-    height: 42px;
+    width: 48px;
+    height: 48px;
     filter: brightness(0) saturate(100%) invert(92%) sepia(13%) saturate(32%) hue-rotate(197deg) brightness(100%) contrast(103%);
   }
   .navigation .nav #category {
@@ -180,6 +180,14 @@ body {
     background: #ff82b2;
     color: #F9F871;
   }
+  .navigation .nav .colour_filler {
+    position: absolute;
+    right: -58px;
+    background: #007AFF;
+    width: 8rem;
+    height: 15rem;
+    z-index: -1;
+  }
   .navigation .nav .mobile_menu {
     display: flex;
     flex-direction: column;
@@ -192,6 +200,7 @@ body {
     gap: 1rem;
   }
   .navigation .nav .mobile_menu ul {
+    text-align: end;
     display: flex;
     flex-direction: column;
     gap: 1rem;

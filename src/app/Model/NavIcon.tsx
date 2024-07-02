@@ -37,17 +37,18 @@ export default function NavIcon() {
             onClick={toggleMenu}
         >
             {isClicked 
-            ? <FontAwesomeIcon icon={faXmark} style={{fontSize: '24px', color: '#F2F2F7'}} /> 
-            : <>
-                <FontAwesomeIcon icon={faBars} style={{fontSize: '24px', color: '#F2F2F7'}} />
-                <ul>
-                    <li><Link className="text" href={'/'}>About</Link></li>
-                    <li><Link className="text" href={'/'}>Blog</Link></li>
-                    <li><Link className="text"href={'/portfolio'}>Portfolio</Link></li>
-                    <li><Link className="text"href={'https://github.com/yun-sik-kim'}>Github</Link></li>
-                    <li><Link className="text"href={'https://www.linkedin.com/in/yunsik-kim/'}>LinkedIn</Link></li>
-                </ul>
-            </>
+            ?   <>
+                    <FontAwesomeIcon icon={faXmark} style={{fontSize: '24px', color: '#F2F2F7'}} />
+                    <ul>
+                        <li><Link className="text" href={'/'}>About</Link></li>
+                        <li><Link className="text" href={'/'}>Blog</Link></li>
+                        <li><Link className="text"href={'/portfolio'}>Portfolio</Link></li>
+                        <li><Link className="text"href={'https://github.com/yun-sik-kim'}>Github</Link></li>
+                        <li><Link className="text"href={'https://www.linkedin.com/in/yunsik-kim/'}>LinkedIn</Link></li>
+                    </ul>
+                    <div className="colour_filler"></div>
+                </>
+            :   <FontAwesomeIcon icon={faBars} style={{fontSize: '24px', color: '#F2F2F7'}} />  
             }
         </div>
     )
