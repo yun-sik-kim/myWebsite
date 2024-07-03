@@ -355,7 +355,7 @@ $main-width: 93%;
         position: relative;
         display: grid;
         grid-template-columns: repeat(4, 4rem);
-        gap: 1rem; /* Gutter width */
+        gap: 0.75rem; /* Gutter width */
         // row-gap: 4rem;
         // z-index: 99;
     
@@ -386,12 +386,13 @@ $main-width: 93%;
                         font-style: normal;
                         font-weight: 600;
                         line-height: normal;
+                        // width: auto;
                     }
                     h2 {
                         font-size: 36px;
                         font-style: normal;
                         font-weight: 500;
-                        line-height: normal;
+                        // width: auto;
                     }
                 }
                 .interactive_section {
@@ -422,6 +423,7 @@ $main-width: 93%;
                 display: flex;
                 align-items: center;
                 gap: 12px;
+                flex-wrap: wrap;
         
                 .button {
                     display: flex;

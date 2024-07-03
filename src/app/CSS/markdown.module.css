@@ -9,7 +9,7 @@
 .markdown h2 {
   margin-top: 1.5em;
   margin-bottom: 0.5em;
-  font-size: 30px;
+  font-size: 36px;
   border-bottom: 3px solid #1C1C1E;
   padding-bottom: 0.2em;
 }
@@ -17,20 +17,25 @@
 .markdown h3 {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
-  font-size: 24px;
+  font-size: 26px;
   color: #007AFF;
 }
 
 .markdown h4 {
   margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  font-size: 1.1rem;
-  color: #444655;
+  margin-bottom: 0.275em;
+  font-weight: 600;
+  font-size: 22px;
+  color: #ff82b2;
+  letter-spacing: 0.01em;
 }
 
 /* Paragraphs and line breaks */
 .markdown p {
   margin-bottom: 1em;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: 0.025em;
 }
 
 .markdown br {
@@ -106,4 +111,104 @@
   vertical-align: top;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 460px) {
+  .markdown body {
+    line-height: 1.5;
+    color: #1C1C1E;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  /* Headings */
+  .markdown h2 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    font-size: 30px;
+    border-bottom: 3px solid #1C1C1E;
+    padding-bottom: 0.2em;
+  }
+  .markdown h3 {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    font-size: 24px;
+    color: #007AFF;
+  }
+  .markdown h4 {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    color: #ff82b2;
+  }
+  /* Paragraphs and line breaks */
+  .markdown p {
+    margin-bottom: 1em;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.025em;
+  }
+  .markdown br {
+    margin-bottom: 0.5em;
+  }
+  /* Inline text styles */
+  .markdown strong {
+    font-weight: bold;
+    color: #ff82b2;
+  }
+  .markdown em {
+    font-style: italic;
+    color: #ff82b2;
+  }
+  /* Code blocks and inline code */
+  .markdown pre {
+    background-color: #f6f7f8;
+    border: 1px solid #ebedf0;
+    border-radius: 4px;
+    padding: 1em;
+    overflow-x: auto;
+  }
+  .markdown code {
+    font-family: "JetBrains Mono", "Fira Code", Menlo, monospace;
+    font-size: 0.9em;
+    background-color: #f6f7f8;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+  }
+  /* Blockquotes */
+  .markdown blockquote {
+    border-left: 4px solid #3eb4bf;
+    margin: 0;
+    padding-left: 1em;
+    color: #3eb4bf;
+    font-style: italic;
+  }
+  /* Lists */
+  .markdown ul {
+    margin-bottom: 1em;
+    padding-left: 2em;
+  }
+  .markdown ol {
+    margin-bottom: 1em;
+    padding-left: 2em;
+  }
+  .markdown li {
+    margin-bottom: 0.5em;
+  }
+  /* Links */
+  .markdown a {
+    color: #2e80f2;
+    text-decoration: underline;
+  }
+  .markdown a:hover {
+    text-decoration: none;
+  }
+  /* Images */
+  .markdown img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: top;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
 }/*# sourceMappingURL=markdown.module.css.map */

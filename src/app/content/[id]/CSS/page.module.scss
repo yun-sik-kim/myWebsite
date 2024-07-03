@@ -1,3 +1,11 @@
+$nav-height: 4.5rem;
+$brand-colour: #007AFF;
+$colour2: #ff82b2;
+$accent-colour: #F9F871;
+$white: #F2F2F7;
+// $white: #F7F9FF;
+$black: #1C1C1E;
+
 .grid_system {
     top: 40+64+148px;
     position: relative;
@@ -125,21 +133,23 @@
                     gap: 0px;
     
                     .main_title {    
-                        color: #000;
+                        color: $black;
                         text-align: center;
                         font-size: 48px;
                         font-style: normal;
                         font-weight: 600;
                         line-height: 100px; /* 104.167% */
+                        width: fit-content;
                     }
                     .sub_title {
-                        color: #000;
-                        width: 304px;
+                        color: $black;
                         text-align: center;
                         font-size: 16px;
                         font-style: normal;
                         font-weight: 500;
-                        line-height: normal;
+                        width: fit-content;
+                        line-height: 18px;
+                        letter-spacing: 1px;
                     }
                 }
                 .date {
