@@ -13,6 +13,7 @@ $black: #1C1C1E;
     grid-template-columns: repeat(12, 67px);
     gap: 20px; /* Gutter width */
     row-gap: 5rem;
+    padding-bottom: 5rem;
     // max-width: 1024px; /* Adjust based on your design */
 }
 
@@ -104,6 +105,7 @@ $black: #1C1C1E;
 
         top: 96px;
         row-gap: 5rem;
+        padding-bottom: 5rem;
         // max-width: 1024px; /* Adjust based on your design */
     }
     
@@ -130,7 +132,7 @@ $black: #1C1C1E;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    gap: 0px;
+                    gap: 12px;
     
                     .main_title {    
                         color: $black;
@@ -138,7 +140,7 @@ $black: #1C1C1E;
                         font-size: 48px;
                         font-style: normal;
                         font-weight: 600;
-                        line-height: 100px; /* 104.167% */
+                        line-height: 52px; /* 104.167% */
                         width: fit-content;
                     }
                     .sub_title {

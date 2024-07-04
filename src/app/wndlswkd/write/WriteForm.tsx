@@ -4,21 +4,17 @@ import MarkdownEditor from "../MarkdownEditor";
 import CustumReactMarkdown from "@/app/Model/CustumReactMarkdown";
 import '@/app/wndlswkd/CSS/write.css'
 
-export default function WriteForm( props: any ) {
-  const [postNo, setPostNo] = useState<number | null>(props.postNo);
-  const [category, setCategory] = useState<string | null>(props.category);
-  const [title, setTitle] = useState<string | null>(props.title);
-  const [subTitle, setSubTitle] = useState<string | null>(props.subTitle);
-  const [date, setDate] = useState<string | null>(props.date);
-  const [tags, setTags] = useState<string | null>(props.tags);
-  const [context, setContext] = useState<string | null>(props.context);
-  const [colour, setColour] = useState<string | null>(props.colour);
+import { Post } from "@/types/Post";
 
-  useEffect(() => {
-    const newColour = getRandomColor();
-    setColour(newColour);
-    console.log(newColour);
-  }, []); // Empty dependency array ensures this runs only once
+export default function WriteForm() {
+  // const [id, setId] = useState<string>(post.id);
+  // const [postNo, setPostNo] = useState<number | null>(post.postNo);
+  const [category, setCategory] = useState<string>('');
+  const [title, setTitle] = useState<string>('');
+  const [subTitle, setSubTitle] = useState<string>('');
+  const [date, setDate] = useState<string>('');
+  const [tags, setTags] = useState<string[]>([]);
+  const [context, setContext] = useState<string>('');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -29,14 +25,13 @@ export default function WriteForm( props: any ) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        postNo,
+        // postNo,
         category,
         title,
         subTitle,
         date,
-        context,
         tags,
-        colour,
+        context,
       }),
     });
 
@@ -47,6 +42,12 @@ export default function WriteForm( props: any ) {
     }
   };
 
+  const handleTagsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Split the input value by commas and trim whitespace
+    const tagArray = e.target.value.split(',').map(tag => tag.trim());
+    setTags(tagArray);
+  };
+
   return (
     <div className='edit_page'>
       <div className='writing_part'>
@@ -54,54 +55,42 @@ export default function WriteForm( props: any ) {
           <input
             type="text"
             placeholder="category"
-            value={category ?? ""} // nullish coalescing, if category is null, it falls back to an empty string ''.
+            value={category} 
             onChange={(e) => setCategory(e.target.value)}
             required
           />
           <input
             type="text"
             placeholder="Title"
-            value={title ?? ""}
+            value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
           />
           <input
             type="text"
             placeholder="Subtitle"
-            value={subTitle ?? ""}
-            onChange={(e) => setSubTitle(e.target.value)}
-            required
+            value={subTitle}
+            onChange={(e) => setSubTitle(e.target.value || '')}
           />
           <input
             type="date"
-            value={date ?? ""}
+            value={date}
             onChange={(e) => setDate(e.target.value)}
             required
           />
-          {/* <textarea
-          placeholder="Context"
-          value={context ?? ''}
-          onChange={(e) => setContext(e.target.value)}
-          required
-        ></textarea> */}
           <MarkdownEditor
-            context={context ?? ""}
+            context={context}
             onInputChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
               setContext(e.target.value)
             }
           />
           <input
             type="text"
-            placeholder="tag"
-            value={tags ?? ""}
-            onChange={(e) => setTags(e.target.value)}
+            placeholder="Enter tags separated by commas"
+            value={tags.join(', ')}
+            onChange={handleTagsChange}
             required
           />
-          {/* <input type='file' accept='image/*'
-          onChange={async(e)=>{
-            await fetch('/api')
-          }}
-        /> */}
           <button type="submit">Submit</button>
         </form>
       </div>
@@ -113,13 +102,4 @@ export default function WriteForm( props: any ) {
       </div>
     </div>
   );
-}
-
-function getRandomColor() {
-  const letters = "0123456789ABCDEF";
-  let color = "#";
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
 }

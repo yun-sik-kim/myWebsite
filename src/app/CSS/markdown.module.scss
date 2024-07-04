@@ -57,7 +57,8 @@ $grey1: #444655;
 /* Inline text styles */
 .markdown strong {
   font-weight: bold;
-  color: $colour2;
+  font-size: 20px;
+  color: $black;
 }
 
 .markdown em {
@@ -72,6 +73,7 @@ $grey1: #444655;
   border-radius: 4px;
   padding: 1em;
   overflow-x: auto;
+  white-space: pre-wrap;
 }
 
 .markdown code {
@@ -80,6 +82,7 @@ $grey1: #444655;
   background-color: #f6f7f8;
   padding: 0.2em 0.4em;
   border-radius: 3px;
+  line-height: 22px;
 }
 
 /* Blockquotes */
@@ -192,6 +195,7 @@ $grey1: #444655;
     border-radius: 4px;
     padding: 1em;
     overflow-x: auto;
+    white-space: pre-wrap;
   }
   
   .markdown code {
@@ -200,6 +204,7 @@ $grey1: #444655;
     background-color: #f6f7f8;
     padding: 0.2em 0.4em;
     border-radius: 3px;
+    line-height: 22px;
   }
   
   /* Blockquotes */

@@ -11,15 +11,7 @@ export default async function Write() {
         return notFound();
     }
 
-    const db = (await connectDB).db("blog");
-    let result = await db.collection('postNo').findOne({});
-
-    if (!result) {
-        return (
-            <p>The collection does not exist check DB</p>
-        )
-    };
     return (
-        <WriteForm postNo={result.totalPost} />
+        <WriteForm />
     );
 }

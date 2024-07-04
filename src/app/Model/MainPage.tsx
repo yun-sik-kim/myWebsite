@@ -3,25 +3,9 @@ import { useState, useEffect, useCallback } from "react";
 import MainImage from "@/app/Model/MainImage"
 import CardSection from "@/app/Model/CardSection"
 import styles from "@/app/CSS/page.module.css"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons"; 
+import { Category } from "@/types/Category";
+import { Post } from "@/types/Post";
 
-export interface Category {
-    id: string;
-    categoryName: string;
-    imgUrl: string;
-}
-
-export interface Post {
-    id: string;
-    postNo: number;
-    category: string;
-    title: string;
-    subTitle: string;
-    date: string;
-    tags: string[];
-    context: string;
-}
 
 export default function MainPage({ categories, posts }: { categories: Category[], posts: Post[] }) {
     const [ctgs, setCtg] = useState(categories);

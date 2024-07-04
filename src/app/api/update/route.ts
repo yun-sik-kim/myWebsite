@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { ObjectId } from "mongodb";
 import { connectDB } from "@/../util/database";
 
 export async function POST(request: Request) {
@@ -8,14 +9,13 @@ export async function POST(request: Request) {
     try {
         const db = (await connectDB).db('blog'); // !!! DB in/output code must be written inside server component only. (user can read in client component)
         await db.collection('post').updateOne(
-            {postNo : req.postNo},
+            {_id : ObjectId.createFromHexString(req.id)},
             {$set : { category : req.category,
                       title : req.title,
                       subTitle : req.subTitle,
                       date : req.date,
+                      tags : req.tags,
                       context : req.context,
-                      tag : req.tag,
-                      colour : req.colour
              }}
         );
 

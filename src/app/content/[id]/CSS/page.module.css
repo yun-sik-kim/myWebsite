@@ -5,6 +5,7 @@
   grid-template-columns: repeat(12, 67px);
   gap: 20px; /* Gutter width */
   row-gap: 5rem;
+  padding-bottom: 5rem;
 }
 
 .main_text {
@@ -85,6 +86,7 @@
     gap: 1rem; /* Gutter width */
     top: 96px;
     row-gap: 5rem;
+    padding-bottom: 5rem;
   }
   .main_content {
     grid-column: 1/5;
@@ -109,7 +111,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0px;
+    gap: 12px;
   }
   .main_content .hero_section .header .title .main_title {
     color: #1C1C1E;
@@ -117,7 +119,7 @@
     font-size: 48px;
     font-style: normal;
     font-weight: 600;
-    line-height: 100px; /* 104.167% */
+    line-height: 52px; /* 104.167% */
     width: -moz-fit-content;
     width: fit-content;
   }

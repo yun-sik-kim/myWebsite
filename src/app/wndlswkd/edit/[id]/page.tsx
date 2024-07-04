@@ -6,16 +6,7 @@ import { GET } from '@/app/api/auth/[...nextauth]/route'
 import { getServerSession } from "next-auth";
 import { notFound } from "next/navigation";
 
-interface PostData {
-    postNo: number;
-    category: string;
-    title: string;
-    subTitle: string;
-    date: string;
-    tag: string;
-    context: string;
-    colour: string;
-}
+import { Post } from "@/types/Post";
 
 export default async function Edit(props: any) {
     let session = await getServerSession(GET);
@@ -35,20 +26,20 @@ export default async function Edit(props: any) {
         )
     };
 
-    let plainPostData = {
-        postNo: result.postNo,
+    let plainPost = {
+        // postNo: result.postNo,
+        id: result._id.toString(),
         category: result.category,
         title: result.title,
         subTitle: result.subTitle,
         date: result.date,
-        tag: result.tag,
         context: result.context,
-        colour: result.colour,
+        tags: result.tags,
     }
 
-    console.log(plainPostData)
+    console.log(plainPost)
 
     return (
-        <EditForm postData={plainPostData} />
+        <EditForm post={plainPost} />
     );
 }
