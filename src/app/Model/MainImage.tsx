@@ -4,7 +4,7 @@ import Image from "next/image";
 import CanvasReact from "./CanvasReact";
 import styles from "@/app/CSS/page.module.css";
 
-import { Category } from "./MainPage";  // DATA TYPE
+import { Category } from "@/types/Category";
 
 export default function MainImage({ categories }: { categories: Category[] }) {
     let textColor = '#FFF';
