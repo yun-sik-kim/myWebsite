@@ -79,7 +79,7 @@ function formatDate(dateString: string) {
     const date = new Date(dateString);
     
     const day = date.getDate();
-    const month = date.toLocaleString('default', { month: 'short' });
+    const month = date.toLocaleString('en-GB', { month: 'short' });
     const year = date.getFullYear();
   
     // Add ordinal suffix to day
