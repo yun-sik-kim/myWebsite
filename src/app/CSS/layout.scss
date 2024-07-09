@@ -1,4 +1,4 @@
-$nav-height: 4.5rem;
+$nav-height: 4rem;
 $nav-height-mobile: 3rem; 
 $brand-colour: #007AFF;
 $colour2: #ff82b2;
@@ -64,15 +64,13 @@ body {
 
         text-align: center;
         font-size: 16px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 24px; /* 150% */
-        letter-spacing: 0.32px;
+        font-weight: 400;
+        letter-spacing: 0.15px;
         text-decoration: none;
 
         .app_logo {
-            width: 66px;
-            height: 66px;
+            width: $nav-height;
+            height: $nav-height;
             // flex-shrink: 0;
             filter: brightness(0) saturate(100%) invert(92%) sepia(13%) saturate(32%) hue-rotate(197deg) brightness(100%) contrast(103%);
         }
@@ -85,7 +83,6 @@ body {
     
             position: absolute;
             left: 108px;
-            top: 24px;
 
             .text {
                 color: $white;

@@ -1,28 +1,21 @@
 'use client'
 import Card from "./Card";
 import CanvasReact from "./CanvasReact";
+import { Post } from "@/types/Post";
 
-export default function CardSection({ posts }: { posts: any }) {
+export default function CardSection({ posts }: { posts: Post[] }) {
 
     return (
         <>
-            {
-            posts.map((a: any, i: number)=>{
-                let title = posts[i].title;
-                let subtitle = posts[i].subTitle;
-
+            {posts.map((post: Post, i: number)=>{
                 return (
-                    <Card key={posts[i].id.toString()}    // !!!Need unite props into one code. props are spread all over the codes
-                    id={posts[i].id.toString()}
-                    title={title} 
-                    subTitle={subtitle}
-                    date={posts[i].date}
-                    context={posts[i].context}
-                    tags={posts[i].tags}
+                    <Card 
+                    key={post.id}    // !!!Need unite props into one code. props are spread all over the codes
+                    post={post}
+                    colour={i % 2 === 0 ? 'white' : 'blue'}
                     />
                 )
-            })
-          }
+            })}
           <CanvasReact />
         </>
     )
