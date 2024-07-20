@@ -1,0 +1,67 @@
+.sys h1 {
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 49px; /* 102.083% */
+  letter-spacing: 0.96px;
+}
+.sys h2 {
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 39px; /* 108.333% */
+  letter-spacing: 1.44px;
+}
+.sys h3 {
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 31px; /* 103.333% */
+  letter-spacing: 0.9px;
+}
+.sys h4 {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 100% */
+  letter-spacing: 0.96px;
+}
+.sys h5 {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px; /* 116.667% */
+  letter-spacing: 0.96px;
+}
+.sys b {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 120% */
+  letter-spacing: 0.8px;
+}
+.sys p {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 120% */
+  letter-spacing: 0.4px;
+}
+.sys small {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 24px; /* 150% */
+  letter-spacing: 1.6px;
+}
+
+.test {
+  font-size: 48px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+}/*# sourceMappingURL=styles.module.css.map */

@@ -1,0 +1,292 @@
+.main1 {
+  width: 100vw;
+  height: 100vh;
+  background: #1C1C1E;
+  z-index: 40;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.main1 .background_circle {
+  background: #F2F2F7;
+  position: absolute;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 999px;
+  bottom: -10rem;
+  -webkit-clip-path: inset(0% 0% 50% 0%);
+          clip-path: inset(0% 0% 50% 0%);
+}
+
+.main2 {
+  width: 100vw;
+  height: 100vh;
+  background: #ffffff;
+}
+
+.main3 {
+  width: 100vw;
+  height: 2900vh;
+  background: #ffffff;
+}
+
+.mockup_logo {
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 12%;
+  width: 100vw;
+  height: 4rem;
+  color: #F2F2F7;
+  background: #1C1C1E;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 100% */
+  letter-spacing: 0.48px;
+}
+
+.mockup_logo_back {
+  position: fixed;
+  top: 0;
+  left: 12%;
+  width: 100vw;
+  height: 4rem;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 100% */
+  letter-spacing: 0.48px;
+}
+
+.design_system_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+}
+
+.design_system_dark {
+  display: grid;
+  grid-template-columns: repeat(12, 4.5rem);
+  gap: 1.125rem; /* Gutter width */
+  position: absolute;
+  color: #F2F2F7;
+  grid-template-areas: "TSC TSC TSC COL COL BTN BTN BTN BTN COM COM COM" "TSC TSC TSC COL COL BTN BTN BTN BTN COM COM COM" "TSC TSC TSC COL COL BTN BTN BTN BTN COM COM COM" "TSC TSC TSC SPC SPC ACC ACC ACC ACC COM COM COM" "TSC TSC TSC SPC SPC ACC ACC ACC ACC COM COM COM" "TSC TSC TSC SPC SPC PRF PRF PRF PRF PRF PRF PRF" "TSC TSC TSC SPC SPC PRF PRF PRF PRF PRF PRF PRF" "TSC TSC TSC SPC SPC PRF PRF PRF PRF PRF PRF PRF" "TSC TSC TSC SPC SPC PRF PRF PRF PRF PRF PRF PRF" "TSC TSC TSC SPC SPC PRF PRF PRF PRF PRF PRF PRF" "TSC TSC TSC SPC SPC PRF PRF PRF PRF PRF PRF PRF";
+}
+.design_system_dark .spacing_box {
+  background: #1C1C1E;
+}
+
+.type_scale {
+  grid-area: TSC;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+.type_scale .type_scale_box {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+}
+
+.colour {
+  grid-area: COL;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.colour .colour_grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 10rem;
+  gap: 1rem;
+}
+.colour .colour_grid .colour_item {
+  border-radius: 9px;
+  width: 4rem;
+  height: 4rem;
+}
+
+.spacing {
+  grid-area: SPC;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.spacing .spacing_container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.buttons {
+  grid-area: BTN;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.buttons .button_box {
+  display: flex;
+  width: 324px;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.buttons .button_box .default1 {
+  padding: 8px 16px;
+  gap: 10px;
+  border-radius: 25px;
+  border: 1px solid #D9D9D9;
+  background: #1C1C1E;
+  color: #F2F2F7;
+}
+.buttons .button_box .default2 {
+  border-radius: 99px;
+  border: none;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 8px 16px;
+  background: #007AFF;
+  color: #F2F2F7;
+}
+.buttons .button_box .selected {
+  border-radius: 99px;
+  border: none;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 8px 16px;
+  background: #70BDA4;
+  color: #F9F871;
+}
+.buttons .link_box {
+  display: flex;
+  flex-direction: row;
+  width: 324px;
+  align-items: flex-start;
+  gap: 8px;
+}
+.buttons .link_box .primary {
+  color: #007AFF;
+}
+.buttons .link_box .secondary {
+  color: #70BDA4;
+}
+.buttons .effect_box {
+  display: flex;
+  align-items: flex-start;
+  display: -webkit-inline-box;
+}
+.buttons .effect_box .elipse1 {
+  width: 32px;
+  height: 2rem;
+  border-radius: 99px;
+  background: #F2F2F7;
+}
+.buttons .effect_box .effect1 {
+  border-radius: 99px;
+  background: linear-gradient(266deg, #6EFACC 0%, #007AFF 100%);
+  display: flex;
+  width: 108px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-left: 0.5rem;
+}
+.buttons .effect_box .elipse2 {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 99px;
+  background: #444655;
+  margin-left: 0.5rem;
+}
+.buttons .effect_box .effect2 {
+  border-radius: 99px;
+  background: linear-gradient(266deg, #F9F871 0%, #007AFF 100%);
+  display: flex;
+  width: 108px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-left: 0.5rem;
+}
+
+.accents {
+  grid-area: ACC;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+.accents .accents_box {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.profile {
+  grid-area: PRF;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.components {
+  grid-area: COM;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+.components .components_box {
+  display: flex;
+  flex-direction: column;
+}
+.components .components_box .text {
+  border: none;
+}
+.components .components_box .main_component {
+  border-radius: 9px;
+  width: -webkit-fill-available;
+  aspect-ratio: 1;
+  background: #F9F871;
+}
+.components .components_box .sub1_component {
+  margin-top: 8px;
+  border-radius: 9px;
+  width: -webkit-fill-available;
+  height: 48px;
+  background: #F2F2F7;
+}
+.components .components_box .sub2_component {
+  margin-top: 4px;
+  border-radius: 9px;
+  width: -webkit-fill-available;
+  height: 32px;
+  background: #F2F2F7;
+}
+.components .components_box .tag_component {
+  margin-top: 4px;
+  border-radius: 9px;
+  width: -webkit-fill-available;
+  height: 8px;
+  background: #F2F2F7;
+}
+
+.design_system_light {
+  display: grid;
+  grid-template-columns: repeat(12, 4.5rem);
+  gap: 1.125rem; /* Gutter width */
+  position: absolute;
+  color: #1C1C1E;
+  grid-template-areas: "TSC TSC TSC COL COL BTN BTN BTN BTN COM COM COM" "TSC TSC TSC COL COL BTN BTN BTN BTN COM COM COM" "TSC TSC TSC COL COL BTN BTN BTN BTN COM COM COM" "TSC TSC TSC SPC SPC ACC ACC ACC ACC COM COM COM" "TSC TSC TSC SPC SPC ACC ACC ACC ACC COM COM COM" "TSC TSC TSC SPC SPC PRF PRF PRF PRF PRF PRF PRF" "TSC TSC TSC SPC SPC PRF PRF PRF PRF PRF PRF PRF" "TSC TSC TSC SPC SPC PRF PRF PRF PRF PRF PRF PRF" "TSC TSC TSC SPC SPC PRF PRF PRF PRF PRF PRF PRF" "TSC TSC TSC SPC SPC PRF PRF PRF PRF PRF PRF PRF" "TSC TSC TSC SPC SPC PRF PRF PRF PRF PRF PRF PRF";
+}/*# sourceMappingURL=DesignSystem.module.css.map */

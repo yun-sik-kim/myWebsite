@@ -1,0 +1,22 @@
+@use 'global' as sys;
+
+// body {
+//     height: 200vh; /* Make the page scrollable */
+//     margin: 0;
+//     display: flex;
+//     justify-content: center;
+//     align-items: start;
+//     padding-top: 20vh;
+// }
+
+.test {
+    font-size: 48px;
+    // background: linear-gradient(to bottom, sys.$brand-colour 50%, sys.$accent-colour 50%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+}

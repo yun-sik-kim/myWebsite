@@ -1,0 +1,21 @@
+.nav_container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+}
+
+.nav_container_none {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 4rem;
+    display: none;
+    justify-content: center;
+}

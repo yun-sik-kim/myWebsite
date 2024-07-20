@@ -1,0 +1,370 @@
+// Colour
+$brand-colour: #007AFF;
+$colour2: #70BDA4;
+$accent-colour: #F9F871;
+$white: #F2F2F7;
+$grey: #444655;
+$black: #1C1C1E;
+
+// Grid Template
+$nav-height: 4rem;
+$nav-height-mobile: 3rem; 
+$default-border-radius: 9px;
+
+.main1 {
+    width: 100vw;
+    height: 100vh;
+    background: $black;
+    z-index: 40;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    .background_circle {
+        background: $white;
+        position: absolute;
+        width: 20rem;
+        height: 20rem;
+        border-radius: 999px;
+        bottom: -10rem;
+        clip-path: inset(0% 0% 50% 0%);
+    }
+}
+
+.main2 {
+    width: 100vw;
+    height: 100vh;
+    background: #ffffff;
+}
+
+.main3 {
+    width: 100vw;
+    height: 2900vh;
+    background: #ffffff;
+}
+
+.mockup_logo {
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    left: 12%;
+    width: 100vw;
+    height: 4rem;
+    color: $white;
+    background: $black;
+
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 100% */
+    letter-spacing: 0.48px;
+}
+
+.mockup_logo_back {
+    position: fixed;
+    top: 0;
+    left: 12%;
+    width: 100vw;
+    height: 4rem;
+    background: #ffffff;
+
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 100% */
+    letter-spacing: 0.48px;
+}
+
+.design_system_container {
+    // position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    top: 50%;
+}
+
+.design_system_dark {
+    display: grid;
+    grid-template-columns: repeat(12, 4.5rem);
+    // grid-template-rows: repeat(8, 4rem);
+    gap: 1.125rem;; /* Gutter width */
+    // background-color: $black;
+    position: absolute;
+    color: $white;
+
+    grid-template-areas: 
+    "TSC TSC TSC COL COL BTN BTN BTN BTN COM COM COM"
+    "TSC TSC TSC COL COL BTN BTN BTN BTN COM COM COM"
+    "TSC TSC TSC COL COL BTN BTN BTN BTN COM COM COM"
+    "TSC TSC TSC SPC SPC ACC ACC ACC ACC COM COM COM"
+    "TSC TSC TSC SPC SPC ACC ACC ACC ACC COM COM COM"
+    "TSC TSC TSC SPC SPC PRF PRF PRF PRF PRF PRF PRF"
+    "TSC TSC TSC SPC SPC PRF PRF PRF PRF PRF PRF PRF"
+    "TSC TSC TSC SPC SPC PRF PRF PRF PRF PRF PRF PRF"
+    "TSC TSC TSC SPC SPC PRF PRF PRF PRF PRF PRF PRF"
+    "TSC TSC TSC SPC SPC PRF PRF PRF PRF PRF PRF PRF"
+    "TSC TSC TSC SPC SPC PRF PRF PRF PRF PRF PRF PRF";
+
+    .spacing_box {
+        background: $black;
+    }
+}
+
+.type_scale {
+    // border-radius: 25px;
+    // border: 1px solid #D9D9D9;
+
+    grid-area: TSC;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    .type_scale_box {
+        display: flex;
+        flex-direction: column;
+        gap: 19px;
+    }
+}
+
+.colour {
+    // border-radius: 25px;
+    // border: 1px solid #D9D9D9;
+
+    grid-area: COL;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    .colour_grid {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 10rem;
+        gap: 1rem;
+        .colour_item {
+            border-radius: $default-border-radius;
+            width: 4rem;
+            height: 4rem;
+        }
+    }
+}
+
+.spacing {
+    // border-radius: 25px;
+    // border: 1px solid #D9D9D9;
+
+    grid-area: SPC;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    .spacing_container {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+.buttons {
+    // border-radius: 25px;
+    // border: 1px solid #D9D9D9;
+
+    grid-area: BTN;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    .button_box {
+        display: flex;
+        width: 324px;
+        align-items: flex-start;
+        align-content: flex-start;
+        gap: 16px;
+        flex-wrap: wrap;
+
+        .default1 {
+
+            padding: 8px 16px;
+            gap: 10px;
+
+            border-radius: 25px;
+            border: 1px solid #D9D9D9;
+            background: $black;
+            color: $white;
+        }
+        .default2 {
+            border-radius: 99px;
+            border: none;
+            height: fit-content;
+            padding: 8px 16px;
+            background: $brand-colour;
+            color: $white;
+        }
+        .selected {
+            border-radius: 99px;
+            border: none;
+            height: fit-content;
+            padding: 8px 16px;
+            background: $colour2;
+            color: $accent-colour;
+        }
+    }
+    .link_box {
+        display: flex;
+        flex-direction: row;
+        width: 324px;
+        align-items: flex-start;
+        gap: 8px;
+        .primary {
+            color: $brand-colour;
+        }
+        .secondary {
+            color: $colour2;
+        }
+    }
+    .effect_box {
+        display: flex;
+        align-items: flex-start;
+        // gap: 8px;
+        display: -webkit-inline-box;
+
+        .elipse1 {
+            width: 32px;
+            height: 2rem;
+            border-radius: 99px;
+            background: $white;
+        }
+        .effect1 {
+            border-radius: 99px;
+            background: linear-gradient(266deg, #6EFACC 0%, #007AFF 100%);
+            
+            display: flex;
+            width: 108px;
+            // padding: 6px 16px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-left: 0.5rem;
+        }
+        .elipse2 {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 99px;
+            background: $grey;
+            margin-left: 0.5rem;
+        }
+        .effect2 {
+            border-radius: 99px;
+            background: linear-gradient(266deg, #F9F871 0%, #007AFF 100%);
+            
+            display: flex;
+            width: 108px;
+            // padding: 6px 16px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-left: 0.5rem;
+        }
+    }
+}
+
+.accents {
+    // border-radius: 25px;
+    // border: 1px solid #D9D9D9;
+
+    grid-area: ACC;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    .accents_box {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+}
+
+.profile {
+    // border-radius: 25px;
+    // border: 1px solid #D9D9D9;
+
+    grid-area: PRF;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.components {
+    // border-radius: 25px;
+    // border: 1px solid #D9D9D9;
+
+    grid-area: COM;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    .components_box {
+        display: flex;
+        flex-direction: column;
+
+        .text {
+            border: none;
+        }
+
+        .main_component {
+            border-radius: 9px;
+            width: -webkit-fill-available;
+            aspect-ratio: 1;
+            background: $accent-colour;
+        }
+        .sub1_component {
+            margin-top: 8px;
+            border-radius: 9px;
+            width: -webkit-fill-available;
+            height: 48px;
+            background: $white;
+        }
+        .sub2_component {
+            margin-top: 4px;
+            border-radius: 9px;
+            width: -webkit-fill-available;
+            height: 32px;
+            background: $white;
+        }
+        .tag_component {
+            margin-top: 4px;
+            border-radius: 9px;
+            width: -webkit-fill-available;
+            height: 8px;
+            background: $white;
+        }
+    }
+}
+
+.design_system_light {
+    display: grid;
+    grid-template-columns: repeat(12, 4.5rem);
+    // grid-template-rows: repeat(8, 4rem);
+    gap: 1.125rem;; /* Gutter width */
+    // background-color: #ffffff;
+    position: absolute;
+    color: $black;
+
+    grid-template-areas: 
+    "TSC TSC TSC COL COL BTN BTN BTN BTN COM COM COM"
+    "TSC TSC TSC COL COL BTN BTN BTN BTN COM COM COM"
+    "TSC TSC TSC COL COL BTN BTN BTN BTN COM COM COM"
+    "TSC TSC TSC SPC SPC ACC ACC ACC ACC COM COM COM"
+    "TSC TSC TSC SPC SPC ACC ACC ACC ACC COM COM COM"
+    "TSC TSC TSC SPC SPC PRF PRF PRF PRF PRF PRF PRF"
+    "TSC TSC TSC SPC SPC PRF PRF PRF PRF PRF PRF PRF"
+    "TSC TSC TSC SPC SPC PRF PRF PRF PRF PRF PRF PRF"
+    "TSC TSC TSC SPC SPC PRF PRF PRF PRF PRF PRF PRF"
+    "TSC TSC TSC SPC SPC PRF PRF PRF PRF PRF PRF PRF"
+    "TSC TSC TSC SPC SPC PRF PRF PRF PRF PRF PRF PRF";
+}

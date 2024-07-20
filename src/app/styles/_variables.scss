@@ -1,0 +1,82 @@
+// Colour
+$brand-colour: #007AFF;
+$colour2: #70BDA4;
+$accent-colour: #F9F871;
+$white: #F2F2F7;
+$grey: #444655;
+$black: #1C1C1E;
+
+// Grid Template
+$grid-column: repeat(12, 4.5rem);
+$column-gap: 0.875rem; /* Gutter width */
+
+// Type Scale
+.sys {
+    h1 {
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 49px; /* 102.083% */
+        letter-spacing: 0.96px;
+    }
+    
+    h2 {
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 39px; /* 108.333% */
+        letter-spacing: 1.44px;
+    }
+    
+    h3 {
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 31px; /* 103.333% */
+        letter-spacing: 0.9px;
+    }
+    // subheading 1
+    h4 {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px; /* 100% */
+        letter-spacing: 0.96px;
+    }
+    // subheading 2
+    h5 {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 28px; /* 116.667% */
+        letter-spacing: 0.96px;
+    }
+    
+    b {
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px; /* 120% */
+        letter-spacing: 0.8px;
+    }
+    
+    p {
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px; /* 120% */
+        letter-spacing: 0.4px;
+    }
+    
+    small {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 200;
+        line-height: 24px; /* 150% */
+        letter-spacing: 1.6px;
+    }
+}
+
+$nav-height: 4rem;
+$nav-height-mobile: 3rem; 
+$default-border-radius: 9px;
