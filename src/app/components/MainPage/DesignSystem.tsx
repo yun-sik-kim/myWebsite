@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import styles from './DesignSystem.module.css'
 import CanvasBoat from '../Canvas/CanvasBoat';
+import Profile from './Profile';
 // import { ScrambleTextPlugin } from 'gsap/ScrambleTextPlugin';
 
 // gsap.registerPlugin(ScrambleTextPlugin);
@@ -50,7 +51,6 @@ export default function DesignSystem() {
     const page3 = page3Ref.current;
 
     const typeScale = typeScaleRef.current;
-    // const typeScaleChildren = typeScale ? typeScale.children : [];
     const typeScaleTitle = typeScale ? typeScale.querySelector('b') : null;
     const typeScaleBox = typeScale ? typeScale.querySelector(`.${styles.type_scale_box}`) : null;
     const typeScaleBoxChildren = typeScaleBox ? Array.from(typeScaleBox.children) : [];
@@ -162,7 +162,7 @@ export default function DesignSystem() {
       // opacity: 0,
       duration: 2.5,
       stagger: 1,
-    }, '<1.3' )  
+    }, '<1.3' )
     .to(colourRef.current, {
       x: 330,
       duration: 2.5,
@@ -306,6 +306,8 @@ const MockupLogo= forwardRef<HTMLElement>((props, ref) => {
     </header> 
   )
 }) 
+MockupLogo.displayName = 'MockupLogo';
+
 const MockupLogoBack= forwardRef<HTMLElement>((props, ref) => {
   return (
     <header ref={ref} className={styles.mockup_logo_back}>
@@ -314,6 +316,7 @@ const MockupLogoBack= forwardRef<HTMLElement>((props, ref) => {
     </header> 
   )
 }) 
+MockupLogoBack.displayName = 'MockupLogoBack';
 
 const TypeScale = forwardRef<HTMLElement, { color: string, background: string }>(
   ({ color, background }, ref) => {
@@ -361,6 +364,7 @@ const TypeScale = forwardRef<HTMLElement, { color: string, background: string }>
     )
   }
 );
+TypeScale.displayName = 'TypeScale';
 
 const Colour = forwardRef<HTMLElement>((props, ref) => {
   return (
@@ -378,6 +382,8 @@ const Colour = forwardRef<HTMLElement>((props, ref) => {
   )
 }
 );
+Colour.displayName = 'Colour';
+
 
 const Spacing = forwardRef<HTMLElement, {background: string}>(
   ({ background }, ref) => {
@@ -405,6 +411,8 @@ const Spacing = forwardRef<HTMLElement, {background: string}>(
     );
   }
 );
+Spacing.displayName = 'Spacing';
+
 
 const Buttons = forwardRef<HTMLElement>((props, ref) => {
     return (
@@ -434,7 +442,7 @@ const Buttons = forwardRef<HTMLElement>((props, ref) => {
     );
   }
 );
-
+Buttons.displayName = 'Buttons';
 
 
 const Accents = forwardRef<HTMLElement, {filter: string}>(
@@ -470,19 +478,7 @@ const Accents = forwardRef<HTMLElement, {filter: string}>(
     )
   }
 );
-
-const Profile = forwardRef<HTMLElement>((props, ref)=>{
-  return (
-    <section ref={ref ?? undefined} className={styles.profile}>
-      <div>
-        <h1>Intuitive Developer</h1>
-        <p>Yunsik Kim</p>
-      </div>
-      <small>With a passion for detail and a deep understanding of modern technologies, I can transform complex ideas into seamless, intuitive experiences.</small>
-    </section>
-  );
-});
-
+Accents.displayName = 'Accents';
 
 const Components = forwardRef<HTMLElement, {background: string, children: ReactNode}>(
   ({ background, children }, ref) => {
@@ -500,3 +496,4 @@ const Components = forwardRef<HTMLElement, {background: string, children: ReactN
       </section>
     )
 });
+Components.displayName = 'Components';

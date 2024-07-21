@@ -290,9 +290,6 @@ $default-border-radius: 9px;
 }
 
 .profile {
-    // border-radius: 25px;
-    // border: 1px solid #D9D9D9;
-
     grid-area: PRF;
     display: flex;
     flex-direction: column;
@@ -301,9 +298,6 @@ $default-border-radius: 9px;
 }
 
 .components {
-    // border-radius: 25px;
-    // border: 1px solid #D9D9D9;
-
     grid-area: COM;
     display: flex;
     flex-direction: column;
