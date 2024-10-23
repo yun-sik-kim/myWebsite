@@ -5,7 +5,7 @@ export default function WriteBtn(){
 
     return (
         <Link 
-            href={'/wndlswkd/write'} 
+            href={'/blog/wndlswkd/write'} 
             style={{
                 height: '39px',
                 display: 'inline-grid',
